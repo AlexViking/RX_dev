@@ -17,7 +17,9 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "toggleDark": "Toggle dark mode",
-    "getInTouch": "Get in touch"
+    "getInTouch": "Get in touch",
+    "language": "Language",
+    "theme": "Theme"
   },
   "footer": {
     "brandDesc": "Transforming spaces with craftsmanship, precision, and timeless design. Tbilisi, Georgia.",

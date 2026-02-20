@@ -145,7 +145,7 @@
 
 /* Theme toggle */
 .theme-toggle {
-	display: flex;
+	display: none; /* Hidden on mobile by default */
 	align-items: center;
 	justify-content: center;
 	width: 36px;
@@ -153,6 +153,10 @@
 	border-radius: var(--radius-sm);
 	color: var(--color-text-muted);
 	transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+@media (min-width: 900px) {
+	.theme-toggle { display: flex; } /* Show on desktop */
 }
 
 .theme-toggle:hover {
@@ -233,6 +237,38 @@
 .nav-mobile-link:hover,
 .nav-mobile-link.active {
 	color: var(--color-accent);
+}
+
+.nav-mobile-settings {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-5);
+	margin-top: var(--space-8);
+	padding-top: var(--space-6);
+	border-top: 1px solid var(--color-border);
+}
+
+.nav-mobile-setting-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-4);
+}
+
+.nav-mobile-setting-item .setting-label {
+	font-size: var(--text-sm);
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--color-text-muted);
+}
+
+.nav-mobile-setting-item .lang-switcher {
+	display: flex; /* Always show lang switcher in mobile menu */
+}
+
+.nav-mobile-setting-item .theme-toggle-mobile {
+	display: flex; /* Always show theme toggle in mobile menu */
 }
 
 .nav-mobile-footer {
@@ -757,13 +793,17 @@
    LANGUAGE SWITCHER
    ══════════════════════════════════════════════ */
 .lang-switcher {
-	display: flex;
+	display: none; /* Hidden on mobile by default */
 	align-items: center;
 	gap: 2px;
 	background: var(--color-bg-alt);
 	border: 1px solid var(--color-border);
 	border-radius: var(--radius-full);
 	padding: 2px;
+}
+
+@media (min-width: 900px) {
+	.header-actions .lang-switcher { display: flex; } /* Show on desktop in header */
 }
 
 .lang-btn {
