@@ -1,0 +1,435 @@
+{
+  "common": {
+    "phone": "+995 (555) 555 555",
+    "email": "hello@rx.com.ge",
+    "location": "Tbilisi, Georgia",
+    "locationFull": "Tbilisi, Georgia",
+    "locationServing": "Serving Georgia area",
+    "companyName": "RenovationX",
+    "tagline": "Designing structures that speak for themselves"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toggleDark": "Toggle dark mode",
+    "getInTouch": "Get in touch"
+  },
+  "footer": {
+    "brandDesc": "Transforming spaces with craftsmanship, precision, and timeless design. Tbilisi, Georgia.",
+    "nav": {
+      "title": "Navigate",
+      "home": "Home",
+      "about": "About Us",
+      "services": "Services",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "services": {
+      "title": "Services",
+      "kitchen": "Kitchen Remodel",
+      "bathroom": "Bathroom Remodel",
+      "fullHome": "Full Home Renovation",
+      "outdoor": "Outdoor & Patio",
+      "additions": "Custom Additions"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "social": {
+      "instagram": "Instagram",
+      "facebook": "Facebook"
+    },
+    "copyright": "RenovationX. All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Tbilisi, Georgia",
+      "tagline": "Nature-inspired spaces\nfor modern living",
+      "headlineMain": "RX",
+      "headlineSub": "RenovationX",
+      "desc": "We transform homes into extraordinary spaces — blending craftsmanship, natural materials, and bold design.",
+      "cta": "View Projects"
+    },
+    "intro": {
+      "sectionLabel": "We create spaces\nwith meaning and\nmeticulous detail",
+      "headline": "Our Studio",
+      "body": "RenovationX is a team of designers and craftsmen specializing in high-end residential renovations. We are driven by a passion for clean lines, natural materials, and livable design. Our approach combines creative vision with technical precision — every project is a personal collaboration from the first sketch to the final build.",
+      "tabProcess": "Process",
+      "tabImplementation": "Implementation"
+    },
+    "stats": {
+      "renovations": "Custom Renovations",
+      "projects": "Projects in 2025",
+      "experience": "Years Experience",
+      "satisfaction": "Client Satisfaction %",
+      "quote": "\"We are proud of how we transform ideas into habitable masterpieces.\""
+    },
+    "expertise": {
+      "sectionLabel": "From concept to construction —\nall in one studio",
+      "headline": "Our Expertise",
+      "kitchen": {
+        "title": "Kitchen Remodel",
+        "desc": "Complete kitchen transformations — custom cabinetry, countertops, layouts, and lighting designed to inspire.",
+        "cta": "Request a service"
+      },
+      "viz": {
+        "title": "3D Visualization",
+        "desc": "Bring your vision to life with high-end visualizations before a single nail is driven.",
+        "cta": "Request a service"
+      },
+      "docs": {
+        "title": "Technical Documentation",
+        "desc": "Our well-groomed team handles every permit, plan, and detail so you can focus on the result.",
+        "cta": "Request a service"
+      },
+      "supervision": {
+        "title": "Author's Supervision",
+        "desc": "We guide the construction process to preserve design integrity and ensure quality at every stage.",
+        "cta": "Request a service"
+      }
+    },
+    "projects": {
+      "sectionLabel": "We design homes\nof superior quality\nand character",
+      "headline": "Selected Projects",
+      "checkPortfolio": "Check out our portfolio to see the quality of our work",
+      "projectsCount": "projects\nin 2025",
+      "proud": "We are proud of how we transform ideas into habitable masterpieces",
+      "renovationsLabel": "custom\nrenovations\ndifferent in character",
+      "labels": {
+        "p01": "Kitchen Remodel — Scottsdale",
+        "p02": "Outdoor Living — Paradise Valley",
+        "p03": "Full Renovation — Arcadia",
+        "p04": "Bathroom Remodel — Tempe",
+        "p05": "Custom Addition — Mesa"
+      },
+      "viewAll": "View All Projects"
+    },
+    "testimonials": {
+      "sectionLabel": "What clients say",
+      "headline": "Trusted by homeowners\nacross Arizona",
+      "t1": {
+        "quote": "RX completely transformed our kitchen. The attention to detail was remarkable — from the custom cabinetry to the lighting, everything was perfect.",
+        "author": "— Jennifer & Mark L., Scottsdale"
+      },
+      "t2": {
+        "quote": "We hired RX for a full home renovation and couldn't be happier. They kept us informed every step of the way and delivered on time.",
+        "author": "— David & Sarah T., Paradise Valley"
+      },
+      "t3": {
+        "quote": "The 3D visualization service blew us away. We could see exactly what the final result would look like before construction even started.",
+        "author": "— Michael R., Arcadia"
+      }
+    },
+    "cta": {
+      "sectionLabel": "Let's discuss\nyour future home",
+      "locationLabel": "Scottsdale, Arizona",
+      "body": "With the RX studio, architecture becomes personal — meaningful, thoughtful, and built around your life.",
+      "headline": "Ready to start your project? Let's talk renovation",
+      "builtBy": "Developed by the team of RX Renovation"
+    }
+  },
+  "about": {
+    "hero": {
+      "sectionLabel": "About RX Renovation",
+      "headline": "Our Studio",
+      "desc": "We are a team of designers, architects, and craftsmen driven by a passion for spaces that feel as good as they look."
+    },
+    "story": {
+      "sectionLabel": "Our story",
+      "headline": "Built on craft,\ndriven by design",
+      "p1": "RX Renovation was founded with a simple belief: every home deserves to be extraordinary. What began as a small design-build practice has grown into a full-service renovation studio trusted by homeowners across the greater Phoenix area.",
+      "p2": "We specialize in high-end residential renovations — kitchens, bathrooms, full-home transformations, and custom additions. Our process combines creative vision with technical precision, ensuring that every project is delivered on time, on budget, and beyond expectation.",
+      "p3": "Every project begins with listening. We learn how you live, what you love, and what you dream of. Then we build it."
+    },
+    "stats": {
+      "years": "Years in Business",
+      "projects": "Projects Completed",
+      "satisfaction": "Client Satisfaction %",
+      "team": "Team Members"
+    },
+    "team": {
+      "sectionLabel": "The people behind the work",
+      "headline": "Meet the team",
+      "m1": {
+        "name": "Alex Rivera",
+        "role": "Founder & Lead Designer"
+      },
+      "m2": {
+        "name": "Maria Santos",
+        "role": "Interior Design Lead"
+      },
+      "m3": {
+        "name": "James Park",
+        "role": "Project Manager"
+      },
+      "m4": {
+        "name": "Dana Mitchell",
+        "role": "3D Visualization Specialist"
+      }
+    },
+    "values": {
+      "sectionLabel": "What we stand for",
+      "headline": "Our values",
+      "v1": {
+        "title": "Craftsmanship",
+        "desc": "We hold ourselves to the highest standards of quality — in materials, execution, and finish. No shortcuts, ever."
+      },
+      "v2": {
+        "title": "Transparency",
+        "desc": "We communicate clearly and honestly throughout every project. You always know where things stand."
+      },
+      "v3": {
+        "title": "Design Integrity",
+        "desc": "We protect the design vision from concept to completion — because the details are what make the difference."
+      }
+    },
+    "cta": {
+      "headline": "Ready to work together?",
+      "desc": "Let's talk about your project. We'd love to hear your ideas and show you what's possible.",
+      "btnContact": "Get in Touch",
+      "btnProjects": "View Projects"
+    }
+  },
+  "services": {
+    "hero": {
+      "sectionLabel": "What we offer",
+      "headline": "Our Expertise",
+      "desc": "From concept to construction — a full suite of renovation services under one roof."
+    },
+    "kitchen": {
+      "num": "01",
+      "headline": "Kitchen Remodel",
+      "desc": "The kitchen is the heart of the home. We design and build kitchens that balance beauty and function — custom cabinetry, stone countertops, curated hardware, and intelligent layouts that make cooking a pleasure.",
+      "items": [
+        "Custom cabinetry & millwork",
+        "Stone, quartz & butcher block countertops",
+        "Kitchen island design & installation",
+        "Backsplash & tile work",
+        "Appliance integration",
+        "Plumbing & electrical upgrades"
+      ],
+      "cta": "Request a Consultation"
+    },
+    "bathroom": {
+      "num": "02",
+      "headline": "Bathroom Remodel",
+      "desc": "We transform bathrooms into serene retreats. Whether a primary suite spa, a sleek guest bath, or a powder room that makes a statement — our bathroom renovations combine luxury materials with timeless design.",
+      "items": [
+        "Walk-in shower & freestanding tub design",
+        "Custom tile & mosaic work",
+        "Vanity & storage solutions",
+        "Heated flooring systems",
+        "Lighting design",
+        "Plumbing fixture selection & installation"
+      ],
+      "cta": "Request a Consultation"
+    },
+    "fullHome": {
+      "num": "03",
+      "headline": "Full Home Renovation",
+      "desc": "Complete home transformations that reimagine the entire space. We handle everything — design, permitting, construction, and the final walk-through — delivering a cohesive result that feels like a brand new home.",
+      "items": [
+        "Whole-home design & space planning",
+        "Structural changes & open floor plans",
+        "Flooring throughout (hardwood, tile, stone)",
+        "Paint, trim & finish carpentry",
+        "Electrical, plumbing & HVAC updates",
+        "Project management & permitting"
+      ],
+      "cta": "Request a Consultation"
+    },
+    "outdoor": {
+      "num": "04",
+      "headline": "Outdoor & Patio",
+      "desc": "Arizona's climate begs for exceptional outdoor living. We design and build outdoor spaces that extend your home into the desert landscape — covered patios, outdoor kitchens, pools, and desert-inspired landscaping.",
+      "items": [
+        "Covered patio & pergola design",
+        "Outdoor kitchen & BBQ stations",
+        "Pool deck & hardscape",
+        "Desert-adapted landscaping",
+        "Lighting & irrigation",
+        "Shade structure installation"
+      ],
+      "cta": "Request a Consultation"
+    },
+    "viz": {
+      "num": "05",
+      "headline": "3D Visualization",
+      "desc": "See your renovation before construction begins. Our photorealistic 3D renderings let you explore every detail — materials, finishes, lighting, and layout — so you can make confident decisions with complete clarity.",
+      "items": [
+        "Photorealistic interior renderings",
+        "Virtual walkthroughs",
+        "Material & finish selection boards",
+        "Multiple design iterations",
+        "Presentation-ready visuals"
+      ],
+      "cta": "Request a Consultation"
+    },
+    "process": {
+      "sectionLabel": "How we work",
+      "headline": "Our process",
+      "s1": {
+        "num": "01",
+        "title": "Discovery",
+        "desc": "We meet to understand your goals, timeline, and budget. No pressure, just conversation."
+      },
+      "s2": {
+        "num": "02",
+        "title": "Design",
+        "desc": "Our team creates detailed designs and 3D visualizations so you can see the future before it's built."
+      },
+      "s3": {
+        "num": "03",
+        "title": "Planning",
+        "desc": "We handle all permitting, material procurement, and scheduling. Every detail is mapped."
+      },
+      "s4": {
+        "num": "04",
+        "title": "Build",
+        "desc": "Skilled craftsmen execute the work with precision. We maintain quality control at every stage."
+      },
+      "s5": {
+        "num": "05",
+        "title": "Handover",
+        "desc": "A thorough walk-through ensures every detail is perfect. Your new space is ready to enjoy."
+      }
+    },
+    "cta": {
+      "headline": "Start your renovation today",
+      "desc": "Schedule a free consultation and let's talk about transforming your space.",
+      "btn": "Get a Free Quote"
+    }
+  },
+  "projects": {
+    "hero": {
+      "sectionLabel": "We design homes of superior quality and character",
+      "headline": "Selected Projects",
+      "desc": "Check out our portfolio to see the quality of our work —"
+    },
+    "heroCount": "projects in 2025",
+    "filter": {
+      "all": "All Projects",
+      "kitchen": "Kitchen",
+      "bathroom": "Bathroom",
+      "fullHome": "Full Home",
+      "outdoor": "Outdoor"
+    },
+    "cards": {
+      "p01": {
+        "tag": "Kitchen Remodel",
+        "title": "Desert Modern Kitchen",
+        "desc": "Scottsdale, AZ — Complete kitchen transformation with custom white oak cabinetry, quartzite island, and panoramic desert views."
+      },
+      "p02": {
+        "tag": "Bathroom Remodel",
+        "title": "Spa Master Bath",
+        "desc": "Paradise Valley — Freestanding soaking tub, travertine tile floors, and custom floating vanity."
+      },
+      "p03": {
+        "tag": "Outdoor & Patio",
+        "title": "Desert Outdoor Living",
+        "desc": "Arcadia — Full outdoor kitchen, covered patio, and resort-style pool deck with native desert landscaping."
+      },
+      "p04": {
+        "tag": "Full Home Renovation",
+        "title": "Complete Home Transformation",
+        "desc": "Scottsdale — Gut renovation of a 1980s ranch home into a modern desert retreat. New open floor plan, all-new finishes throughout."
+      },
+      "p05": {
+        "tag": "Kitchen Remodel",
+        "title": "Modern Farmhouse Kitchen",
+        "desc": "Mesa — Shaker cabinetry in sage green, butcher block counters, apron sink, and custom open shelving."
+      },
+      "p06": {
+        "tag": "Bathroom Remodel",
+        "title": "Minimalist Guest Bath",
+        "desc": "Tempe — Micro-cement walls, wall-mounted fixtures, and frameless glass shower."
+      },
+      "p07": {
+        "tag": "Custom Addition",
+        "title": "Casita & Guest Suite",
+        "desc": "Chandler — 600 sq ft casita addition with full bath, kitchenette, and private courtyard entrance."
+      },
+      "p08": {
+        "tag": "Full Home Renovation",
+        "title": "Mid-Century Modern Revival",
+        "desc": "Phoenix — Faithful restoration and modernization of a 1962 mid-century home. New systems, preserved character."
+      }
+    },
+    "cta": {
+      "headline": "Your home could be next",
+      "desc": "Let's talk about your renovation. We'll show you what's possible.",
+      "btn": "Get a Free Quote"
+    }
+  },
+  "contact": {
+    "hero": {
+      "sectionLabel": "Let's talk",
+      "headline": "Get in Touch",
+      "desc": "Ready to start your renovation? We'd love to hear about your project. Reach out and we'll get back to you within 24 hours."
+    },
+    "info": {
+      "heading": "Let's discuss your project",
+      "desc": "Whether you have a full vision or just a rough idea, we're here to help you bring it to life. Fill out the form or contact us directly.",
+      "phone": {
+        "label": "Phone"
+      },
+      "email": {
+        "label": "Email"
+      },
+      "location": {
+        "label": "Location"
+      },
+      "hours": {
+        "label": "Office Hours",
+        "weekdays": "Monday – Friday: 8am – 6pm",
+        "saturday": "Saturday: By appointment"
+      },
+      "mapLabel": "Tbilisi, GE"
+    },
+    "form": {
+      "sectionLabel": "Free consultation",
+      "headline": "Tell us about your project",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "service": "Service Interested In",
+      "budget": "Approximate Budget",
+      "message": "Tell us about your project",
+      "submit": "Send Message",
+      "sending": "Sending…",
+      "sent": "Message Sent!",
+      "placeholders": {
+        "firstName": "Alex",
+        "lastName": "Johnson",
+        "email": "alex@example.com",
+        "phone": "+1 (480) 000 0000",
+        "message": "Describe your renovation goals, timeline, and any specific details that would help us understand your vision…"
+      },
+      "serviceOptions": {
+        "default": "Select a service…",
+        "kitchen": "Kitchen Remodel",
+        "bathroom": "Bathroom Remodel",
+        "fullHome": "Full Home Renovation",
+        "outdoor": "Outdoor & Patio",
+        "viz": "3D Visualization",
+        "addition": "Custom Addition",
+        "other": "Other / Not sure"
+      },
+      "budgetOptions": {
+        "default": "Select a range…",
+        "b1": "Under $25,000",
+        "b2": "$25,000 – $75,000",
+        "b3": "$75,000 – $150,000",
+        "b4": "$150,000 – $300,000",
+        "b5": "$300,000+"
+      }
+    }
+  }
+}
