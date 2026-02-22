@@ -117,6 +117,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 	   elements including those just injected by mountHeader / mountFooter */
 	await initI18n();
 
+	/* Hide loading overlay after i18n is complete */
+	const loadingOverlay = document.getElementById('page-loading');
+	if (loadingOverlay) {
+		setTimeout(() => {
+			loadingOverlay.classList.add('hidden');
+		}, 200); // Small delay to ensure smooth transition
+	}
+
 	initScrollReveal();
 	initLoadingBar();
 	initEmailCopy();
