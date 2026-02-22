@@ -64,6 +64,49 @@ function initLoadingBar() {
 	setTimeout(() => { bar.style.opacity = '0'; }, 400);
 }
 
+/* ── Copy email to clipboard ── */
+function initEmailCopy() {
+	document.addEventListener('click', (e) => {
+		const emailLink = e.target.closest('[data-email-copy]');
+		if (!emailLink) return;
+
+		e.preventDefault();
+		const emailText = emailLink.textContent.trim();
+
+		// Copy to clipboard
+		navigator.clipboard.writeText(emailText).then(() => {
+			// Show feedback
+			const originalText = emailLink.textContent;
+			emailLink.textContent = 'Copied!';
+			emailLink.style.color = 'var(--color-accent)';
+
+			setTimeout(() => {
+				emailLink.textContent = originalText;
+				emailLink.style.color = '';
+			}, 2000);
+		}).catch(() => {
+			// Fallback for older browsers
+			const textarea = document.createElement('textarea');
+			textarea.value = emailText;
+			textarea.style.position = 'fixed';
+			textarea.style.opacity = '0';
+			document.body.appendChild(textarea);
+			textarea.select();
+			document.execCommand('copy');
+			document.body.removeChild(textarea);
+
+			const originalText = emailLink.textContent;
+			emailLink.textContent = 'Copied!';
+			emailLink.style.color = 'var(--color-accent)';
+
+			setTimeout(() => {
+				emailLink.textContent = originalText;
+				emailLink.style.color = '';
+			}, 2000);
+		});
+	});
+}
+
 /* ── Init ── */
 document.addEventListener('DOMContentLoaded', async () => {
 	restoreTheme();
@@ -76,4 +119,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	initScrollReveal();
 	initLoadingBar();
+	initEmailCopy();
 });

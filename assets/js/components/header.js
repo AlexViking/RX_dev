@@ -45,20 +45,38 @@ export function renderHeader(currentPage = '') {
 			<div class="header-actions">
 				<a href="tel:+14805550173" class="header-phone" data-i18n="common.phone">+1 (480) 555 0173</a>
 
-				<!-- Language Switcher -->
-				<div class="lang-switcher" aria-label="Language switcher">
-					${langBtns}
+				<!-- Settings Dropdown -->
+				<div class="settings-dropdown">
+					<button class="settings-toggle" id="settings-toggle" aria-label="Settings" aria-expanded="false">
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="12" cy="12" r="3"/>
+							<path d="M12 1v6m0 6v10M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h10M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
+						</svg>
+					</button>
+					<div class="settings-menu" id="settings-menu">
+						<!-- Language -->
+						<div class="settings-section">
+							<span class="settings-label" data-i18n="nav.language">Language</span>
+							<div class="lang-switcher">
+								${langBtns}
+							</div>
+						</div>
+						<!-- Theme -->
+						<div class="settings-section">
+							<span class="settings-label" data-i18n="nav.theme">Theme</span>
+							<button class="theme-toggle" id="theme-toggle" data-i18n-aria="nav.toggleDark" aria-label="Toggle dark mode">
+								<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+								</svg>
+								<svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<circle cx="12" cy="12" r="4"/>
+									<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+								</svg>
+								<span class="theme-label" data-theme-label></span>
+							</button>
+						</div>
+					</div>
 				</div>
-
-				<button class="theme-toggle" id="theme-toggle" data-i18n-aria="nav.toggleDark" aria-label="Toggle dark mode">
-					<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-					</svg>
-					<svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<circle cx="12" cy="12" r="4"/>
-						<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-					</svg>
-				</button>
 
 				<button class="menu-btn" id="menu-btn" data-i18n-aria="nav.openMenu" aria-label="Open menu" aria-expanded="false">
 					<span></span>
@@ -108,11 +126,13 @@ export function renderHeader(currentPage = '') {
 }
 
 export function initHeader() {
-	const header         = document.getElementById('site-header');
-	const menuBtn        = document.getElementById('menu-btn');
-	const mobileNav      = document.getElementById('nav-mobile');
-	const themeBtn       = document.getElementById('theme-toggle');
-	const themeBtnMobile = document.getElementById('theme-toggle-mobile');
+	const header          = document.getElementById('site-header');
+	const menuBtn         = document.getElementById('menu-btn');
+	const mobileNav       = document.getElementById('nav-mobile');
+	const themeBtn        = document.getElementById('theme-toggle');
+	const themeBtnMobile  = document.getElementById('theme-toggle-mobile');
+	const settingsToggle  = document.getElementById('settings-toggle');
+	const settingsMenu    = document.getElementById('settings-menu');
 
 	if (!header) return;
 
@@ -123,6 +143,23 @@ export function initHeader() {
 	window.addEventListener('scroll', onScroll, { passive: true });
 	onScroll();
 
+	/* ── Settings dropdown ── */
+	if (settingsToggle && settingsMenu) {
+		settingsToggle.addEventListener('click', (e) => {
+			e.stopPropagation();
+			const isOpen = settingsMenu.classList.toggle('open');
+			settingsToggle.setAttribute('aria-expanded', String(isOpen));
+		});
+
+		// Close when clicking outside
+		document.addEventListener('click', (e) => {
+			if (!settingsMenu.contains(e.target) && e.target !== settingsToggle) {
+				settingsMenu.classList.remove('open');
+				settingsToggle.setAttribute('aria-expanded', 'false');
+			}
+		});
+	}
+
 	/* ── Mobile menu ── */
 	if (menuBtn && mobileNav) {
 		menuBtn.addEventListener('click', () => {
@@ -130,6 +167,12 @@ export function initHeader() {
 			menuBtn.classList.toggle('open', isOpen);
 			menuBtn.setAttribute('aria-expanded', String(isOpen));
 			document.body.style.overflow = isOpen ? 'hidden' : '';
+
+			// Close settings dropdown when opening mobile menu
+			if (isOpen && settingsMenu) {
+				settingsMenu.classList.remove('open');
+				settingsToggle?.setAttribute('aria-expanded', 'false');
+			}
 		});
 
 		mobileNav.querySelectorAll('.nav-mobile-link').forEach(link => {

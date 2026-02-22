@@ -41,9 +41,9 @@ export function renderFooter() {
 				<div class="footer-col">
 					<h4 data-i18n="footer.contact.title">Contact</h4>
 					<ul>
-						<li><a href="tel:+14805550173"             data-i18n="common.phone">+1 (480) 555 0173</a></li>
-						<li><a href="mailto:hello@rxrenovation.com" data-i18n="common.email">hello@rxrenovation.com</a></li>
-						<li><a href="contact.html"                  data-i18n="common.location">Scottsdale, Arizona</a></li>
+						<li><a href="tel:+14805550173" data-i18n="common.phone">+1 (480) 555 0173</a></li>
+						<li><a href="#" class="copy-email" data-email-copy data-i18n="common.email">hello@rxrenovation.com</a></li>
+						<li><a href="contact.html" data-i18n="common.location">Scottsdale, Arizona</a></li>
 					</ul>
 				</div>
 			</div>

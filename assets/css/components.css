@@ -143,28 +143,112 @@
 	.header-phone { display: block; }
 }
 
-/* Theme toggle */
-.theme-toggle {
-	display: none; /* Hidden on mobile by default */
+/* Settings Dropdown */
+.settings-dropdown {
+	position: relative;
+	display: none; /* Hidden on mobile */
+}
+
+@media (min-width: 900px) {
+	.settings-dropdown { display: block; } /* Show on desktop */
+}
+
+.settings-toggle {
+	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: 36px;
 	height: 36px;
+	background: var(--color-text);
+	color: var(--color-bg);
 	border-radius: var(--radius-sm);
+	transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.settings-toggle:hover {
+	background: var(--color-accent);
+	transform: scale(1.05);
+}
+
+.settings-toggle svg {
+	width: 18px;
+	height: 18px;
+}
+
+.settings-menu {
+	position: absolute;
+	top: calc(100% + 8px);
+	right: 0;
+	min-width: 200px;
+	background: var(--color-surface-warm);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-sm);
+	box-shadow: var(--shadow-md);
+	padding: var(--space-4);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-8px);
+	transition: opacity var(--transition-fast), transform var(--transition-fast), visibility 0s linear var(--transition-fast);
+	z-index: 1000;
+}
+
+.settings-menu.open {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+	transition: opacity var(--transition-fast), transform var(--transition-fast), visibility 0s linear 0s;
+}
+
+.settings-section {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	padding: var(--space-3) 0;
+}
+
+.settings-section:not(:last-child) {
+	border-bottom: 1px solid var(--color-border);
+}
+
+.settings-label {
+	font-size: var(--text-xs);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
 	color: var(--color-text-muted);
-	transition: color var(--transition-fast), background var(--transition-fast);
 }
 
-@media (min-width: 900px) {
-	.theme-toggle { display: flex; } /* Show on desktop */
+.settings-section .lang-switcher {
+	display: flex; /* Always show in settings menu */
 }
 
-.theme-toggle:hover {
-	color: var(--color-text);
+.settings-section .theme-toggle {
+	display: flex; /* Always show in settings menu */
+	width: 100%;
+	justify-content: space-between;
+	padding: var(--space-2) var(--space-3);
+	background: transparent;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-sm);
+	gap: var(--space-2);
+}
+
+.settings-section .theme-toggle:hover {
 	background: var(--color-bg-alt);
+	border-color: var(--color-text);
 }
 
-.theme-toggle svg { width: 18px; height: 18px; }
+.theme-label {
+	font-size: var(--text-xs);
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--color-text);
+	margin-left: auto;
+}
+
+/* Theme toggle icons */
+.theme-toggle svg { width: 16px; height: 16px; }
 .icon-sun  { display: none; }
 .icon-moon { display: block; }
 
@@ -793,7 +877,7 @@
    LANGUAGE SWITCHER
    ══════════════════════════════════════════════ */
 .lang-switcher {
-	display: none; /* Hidden on mobile by default */
+	display: flex;
 	align-items: center;
 	gap: 2px;
 	background: var(--color-bg-alt);
@@ -802,12 +886,8 @@
 	padding: 2px;
 }
 
-@media (min-width: 900px) {
-	.header-actions .lang-switcher { display: flex; } /* Show on desktop in header */
-}
-
 .lang-btn {
-	padding: 3px 10px;
+	padding: 4px 12px;
 	font-size: var(--text-xs);
 	font-weight: 700;
 	letter-spacing: 0.08em;
