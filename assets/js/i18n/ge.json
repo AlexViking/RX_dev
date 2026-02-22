@@ -2,435 +2,435 @@
   "common": {
     "phone": "+995 (555) 555 555",
     "email": "hello@rx.com.ge",
-    "location": "Tbilisi, Georgia",
-    "locationFull": "Tbilisi, Georgia",
-    "locationServing": "Serving Georgia area",
+    "location": "თბილისი, საქართველო",
+    "locationFull": "თბილისი, საქართველო",
+    "locationServing": "ვემსახურებით საქართველოს მასშტაბით",
     "companyName": "RenovationX",
-    "tagline": "Designing structures that speak for themselves"
+    "tagline": "ვქმნით სტრუქტურებს, რომლებიც თავად მეტყველებენ"
   },
   "nav": {
-    "home": "Home",
-    "about": "About",
-    "services": "Services",
-    "projects": "Projects",
-    "contact": "Contact",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu",
-    "toggleDark": "Toggle dark mode",
-    "getInTouch": "Get in touch",
-    "language": "Language",
-    "theme": "Theme"
+    "home": "მთავარი",
+    "about": "ჩვენს შესახებ",
+    "services": "სერვისები",
+    "projects": "პროექტები",
+    "contact": "კონტაქტი",
+    "openMenu": "მენიუს გახსნა",
+    "closeMenu": "მენიუს დახურვა",
+    "toggleDark": "მუქი რეჟიმის გადართვა",
+    "getInTouch": "დაგვიკავშირდით",
+    "language": "ენა",
+    "theme": "თემა"
   },
   "footer": {
-    "brandDesc": "Transforming spaces with craftsmanship, precision, and timeless design. Tbilisi, Georgia.",
+    "brandDesc": "სივრცეების გარდაქმნა პროფესიონალიზმით, სიზუსტითა და მარადიული დიზაინით. თბილისი, საქართველო.",
     "nav": {
-      "title": "Navigate",
-      "home": "Home",
-      "about": "About Us",
-      "services": "Services",
-      "projects": "Projects",
-      "contact": "Contact"
+      "title": "ნავიგაცია",
+      "home": "მთავარი",
+      "about": "ჩვენს შესახებ",
+      "services": "სერვისები",
+      "projects": "პროექტები",
+      "contact": "კონტაქტი"
     },
     "services": {
-      "title": "Services",
-      "kitchen": "Kitchen Remodel",
-      "bathroom": "Bathroom Remodel",
-      "fullHome": "Full Home Renovation",
-      "outdoor": "Outdoor & Patio",
-      "additions": "Custom Additions"
+      "title": "სერვისები",
+      "kitchen": "სამზარეულოს რემონტი",
+      "bathroom": "აბაზანის რემონტი",
+      "fullHome": "სახლის სრული რეაბილიტაცია",
+      "outdoor": "გარე სივრცე და ეზო",
+      "additions": "ინდივიდუალური დანამატები"
     },
     "contact": {
-      "title": "Contact"
+      "title": "კონტაქტი"
     },
     "social": {
       "instagram": "Instagram",
       "facebook": "Facebook"
     },
-    "copyright": "RenovationX. All rights reserved."
+    "copyright": "© RenovationX. ყველა უფლება დაცულია."
   },
   "home": {
     "hero": {
-      "eyebrow": "Tbilisi, Georgia",
-      "tagline": "Nature-inspired spaces\nfor modern living",
+      "eyebrow": "თბილისი, საქართველო",
+      "tagline": "ბუნებით შთაგონებული სივრცეები\nთანამედროვე ცხოვრებისთვის",
       "headlineMain": "RX",
       "headlineSub": "RenovationX",
-      "desc": "We transform homes into extraordinary spaces — blending craftsmanship, natural materials, and bold design.",
-      "cta": "View Projects"
+      "desc": "ჩვენ გარდავქმნით სახლებს არაჩვეულებრივ სივრცეებად — ოსტატობის, ბუნებრივი მასალებისა და თამამი დიზაინის შერწყმით.",
+      "cta": "იხილეთ პროექტები"
     },
     "intro": {
-      "sectionLabel": "We create spaces\nwith meaning and\nmeticulous detail",
-      "headline": "Our Studio",
-      "body": "RenovationX is a team of designers and craftsmen specializing in high-end residential renovations. We are driven by a passion for clean lines, natural materials, and livable design. Our approach combines creative vision with technical precision — every project is a personal collaboration from the first sketch to the final build.",
-      "tabProcess": "Process",
-      "tabImplementation": "Implementation"
+      "sectionLabel": "ჩვენ ვქმნით სივრცეებს\nმრავლისმთქმელი და\nდეტალური დიზაინით",
+      "headline": "ჩვენი სტუდია",
+      "body": "RenovationX არის დიზაინერებისა და ხელოსნების გუნდი, რომელიც სპეციალიზებულია მაღალი კლასის საცხოვრებელი ფართების რემონტზე. ჩვენი მამოძრავებელი ძალაა სუფთა ხაზების, ბუნებრივი მასალებისა და კომფორტული დიზაინის სიყვარული. ჩვენი მიდგომა აერთიანებს კრეატიულ ხედვასა და ტექნიკურ სიზუსტეს — ყოველი პროექტი არის პერსონალური თანამშრომლობა პირველი ესკიზიდან მშენებლობის დასრულებამდე.",
+      "tabProcess": "პროცესი",
+      "tabImplementation": "იმპლემენტაცია"
     },
     "stats": {
-      "renovations": "Custom Renovations",
-      "projects": "Projects in 2025",
-      "experience": "Years Experience",
-      "satisfaction": "Client Satisfaction %",
-      "quote": "\"We are proud of how we transform ideas into habitable masterpieces.\""
+      "renovations": "ინდივიდუალური რემონტი",
+      "projects": "პროექტები 2025 წელს",
+      "experience": "წლიანი გამოცდილება",
+      "satisfaction": "კლიენტთა კმაყოფილება %",
+      "quote": "\"ჩვენ ვამაყობთ იმით, თუ როგორ ვაქცევთ იდეებს საცხოვრებელ შედევრებად.\""
     },
     "expertise": {
-      "sectionLabel": "From concept to construction —\nall in one studio",
-      "headline": "Our Expertise",
+      "sectionLabel": "კონცეფციიდან მშენებლობამდე —\nყველაფერი ერთ სტუდიაში",
+      "headline": "ჩვენი ექსპერტიზა",
       "kitchen": {
-        "title": "Kitchen Remodel",
-        "desc": "Complete kitchen transformations — custom cabinetry, countertops, layouts, and lighting designed to inspire.",
-        "cta": "Request a service"
+        "title": "სამზარეულოს რემონტი",
+        "desc": "სამზარეულოს სრული ტრანსფორმაცია — ინდივიდუალური კარადები, ზედაპირები, დაგეგმარება და განათება შთაგონებისთვის.",
+        "cta": "მოითხოვეთ სერვისი"
       },
       "viz": {
-        "title": "3D Visualization",
-        "desc": "Bring your vision to life with high-end visualizations before a single nail is driven.",
-        "cta": "Request a service"
+        "title": "3D ვიზუალიზაცია",
+        "desc": "გააცოცხლეთ თქვენი ხედვა მაღალი ხარისხის ვიზუალიზაციით, სანამ პირველი ლურსმანი დაეჭედება.",
+        "cta": "მოითხოვეთ სერვისი"
       },
       "docs": {
-        "title": "Technical Documentation",
-        "desc": "Our well-groomed team handles every permit, plan, and detail so you can focus on the result.",
-        "cta": "Request a service"
+        "title": "ტექნიკური დოკუმენტაცია",
+        "desc": "ჩვენი პროფესიონალთა გუნდი აგვარებს ყველა ნებართვას, გეგმასა და დეტალს, რათა თქვენ ფოკუსირდეთ შედეგზე.",
+        "cta": "მოითხოვეთ სერვისი"
       },
       "supervision": {
-        "title": "Author's Supervision",
-        "desc": "We guide the construction process to preserve design integrity and ensure quality at every stage.",
-        "cta": "Request a service"
+        "title": "ავტორის ზედამხედველობა",
+        "desc": "ჩვენ ვხელმძღვანელობთ მშენებლობის პროცესს დიზაინის მთლიანობის შესანარჩუნებლად და ხარისხის უზრუნველსაყოფად ყველა ეტაპზე.",
+        "cta": "მოითხოვეთ სერვისი"
       }
     },
     "projects": {
-      "sectionLabel": "We design homes\nof superior quality\nand character",
-      "headline": "Selected Projects",
-      "checkPortfolio": "Check out our portfolio to see the quality of our work",
-      "projectsCount": "projects\nin 2025",
-      "proud": "We are proud of how we transform ideas into habitable masterpieces",
-      "renovationsLabel": "custom\nrenovations\ndifferent in character",
+      "sectionLabel": "ჩვენ ვქმნით უმაღლესი ხარისხისა\nდა ხასიათის მქონე სახლებს",
+      "headline": "რჩეული პროექტები",
+      "checkPortfolio": "გაეცანით ჩვენს პორტფოლიოს, რათა დარწმუნდეთ ჩვენი ნამუშევრების ხარისხში",
+      "projectsCount": "პროექტი\n2025 წელს",
+      "proud": "ჩვენ ვამაყობთ იმით, თუ როგორ ვაქცევთ იდეებს საცხოვრებელ შედევრებად",
+      "renovationsLabel": "ინდივიდუალური\nრემონტი\nუნიკალური ხასიათით",
       "labels": {
-        "p01": "Kitchen Remodel — Scottsdale",
-        "p02": "Outdoor Living — Paradise Valley",
-        "p03": "Full Renovation — Arcadia",
-        "p04": "Bathroom Remodel — Tempe",
-        "p05": "Custom Addition — Mesa"
+        "p01": "სამზარეულოს რემონტი — ვაკე",
+        "p02": "გარე სივრცე — წყნეთი",
+        "p03": "სრული რემონტი — საბურთალო",
+        "p04": "აბაზანის რემონტი — დიღომი",
+        "p05": "ინდივიდუალური დანამატი — მცხეთა"
       },
-      "viewAll": "View All Projects"
+      "viewAll": "ყველა პროექტის ნახვა"
     },
     "testimonials": {
-      "sectionLabel": "What clients say",
-      "headline": "Trusted by homeowners\nacross Arizona",
+      "sectionLabel": "რას ამბობენ კლიენტები",
+      "headline": "გვერდობენ სახლის მფლობელები\nმთელ საქართველოში",
       "t1": {
-        "quote": "RX completely transformed our kitchen. The attention to detail was remarkable — from the custom cabinetry to the lighting, everything was perfect.",
-        "author": "— Jennifer & Mark L., Scottsdale"
+        "quote": "RX-მა სრულად შეცვალა ჩვენი სამზარეულო. დეტალებისადმი ყურადღება გასაოცარი იყო — დაწყებული კარადებით, დამთავრებული განათებით, ყველაფერი იდეალურია.",
+        "author": "— ჯენიფერი და მარკ ლ., თბილისი"
       },
       "t2": {
-        "quote": "We hired RX for a full home renovation and couldn't be happier. They kept us informed every step of the way and delivered on time.",
-        "author": "— David & Sarah T., Paradise Valley"
+        "quote": "ჩვენ RX დავიქირავეთ სახლის სრული რემონტისთვის და შედეგით ძალიან კმაყოფილები ვართ. ისინი საქმის კურსში გვამყოფებდნენ ყოველ ეტაპზე და სამუშაო დროულად დაასრულეს.",
+        "author": "— დავითი და სარა ტ., წყნეთი"
       },
       "t3": {
-        "quote": "The 3D visualization service blew us away. We could see exactly what the final result would look like before construction even started.",
-        "author": "— Michael R., Arcadia"
+        "quote": "3D ვიზუალიზაციის სერვისმა აღგვაფრთოვანა. ჩვენ ზუსტად დავინახეთ, როგორი იქნებოდა საბოლოო შედეგი მშენებლობის დაწყებამდე.",
+        "author": "— მიხეილ რ., ვაკე"
       }
     },
     "cta": {
-      "sectionLabel": "Let's discuss\nyour future home",
-      "locationLabel": "Scottsdale, Arizona",
-      "body": "With the RX studio, architecture becomes personal — meaningful, thoughtful, and built around your life.",
-      "headline": "Ready to start your project? Let's talk renovation",
-      "builtBy": "Developed by the team of RX Renovation"
+      "sectionLabel": "განვიხილოთ თქვენი\nმომავალი სახლი",
+      "locationLabel": "თბილისი, საქართველო",
+      "body": "RX სტუდიასთან ერთად არქიტექტურა ხდება პერსონალური — მნიშვნელოვანი, გააზრებული და თქვენს ცხოვრებაზე მორგებული.",
+      "headline": "მზად ხართ პროექტის დასაწყებად? ვისაუბროთ რემონტზე",
+      "builtBy": "შემუშავებულია RX Renovation-ის გუნდის მიერ"
     }
   },
   "about": {
     "hero": {
-      "sectionLabel": "About RX Renovation",
-      "headline": "Our Studio",
-      "desc": "We are a team of designers, architects, and craftsmen driven by a passion for spaces that feel as good as they look."
+      "sectionLabel": "RX Renovation-ის შესახებ",
+      "headline": "ჩვენი სტუდია",
+      "desc": "ჩვენ ვართ დიზაინერების, არქიტექტორებისა და ხელოსნების გუნდი, რომელთაც აერთიანებთ გატაცება ისეთი სივრცეების შექმნით, რომლებიც ისევე სასიამოვნო შეგრძნებებს ბადებს, როგორც გამოიყურება."
     },
     "story": {
-      "sectionLabel": "Our story",
-      "headline": "Built on craft,\ndriven by design",
-      "p1": "RX Renovation was founded with a simple belief: every home deserves to be extraordinary. What began as a small design-build practice has grown into a full-service renovation studio trusted by homeowners across the greater Phoenix area.",
-      "p2": "We specialize in high-end residential renovations — kitchens, bathrooms, full-home transformations, and custom additions. Our process combines creative vision with technical precision, ensuring that every project is delivered on time, on budget, and beyond expectation.",
-      "p3": "Every project begins with listening. We learn how you live, what you love, and what you dream of. Then we build it."
+      "sectionLabel": "ჩვენი ისტორია",
+      "headline": "დაფუძნებული ოსტატობაზე,\nმართული დიზაინით",
+      "p1": "RX Renovation დაარსდა მარტივი რწმენით: ყველა სახლი იმსახურებს იყოს არაჩვეულებრივი. ის, რაც დაიწყო როგორც დიზაინ-მშენებლობის მცირე პრაქტიკა, გადაიზარდა სრული სერვისის სარემონტო სტუდიად, რომელსაც ენდობიან სახლის მფლობელები მთელ საქართველოში.",
+      "p2": "ჩვენ სპეციალიზებულები ვართ მაღალი კლასის საცხოვრებელ რემონტზე — სამზარეულოები, აბაზანები, სახლის სრული ტრანსფორმაცია და ინდივიდუალური დანამატები. ჩვენი პროცესი აერთიანებს კრეატიულ ხედვასა და ტექნიკურ სიზუსტეს, რაც უზრუნველყოფს თითოეული პროექტის ჩაბარებას დათქმულ დროს, ბიუჯეტის ფარგლებში და მოლოდინების გადაჭარბებით.",
+      "p3": "ყველა პროექტი იწყება მოსმენით. ჩვენ ვსწავლობთ, როგორ ცხოვრობთ, რა გიყვართ და რაზე ოცნებობთ. შემდეგ კი ამას ვაშენებთ."
     },
     "stats": {
-      "years": "Years in Business",
-      "projects": "Projects Completed",
-      "satisfaction": "Client Satisfaction %",
-      "team": "Team Members"
+      "years": "წელი ბაზარზე",
+      "projects": "დასრულებული პროექტი",
+      "satisfaction": "კლიენტთა კმაყოფილება %",
+      "team": "გუნდის წევრი"
     },
     "team": {
-      "sectionLabel": "The people behind the work",
-      "headline": "Meet the team",
+      "sectionLabel": "ხალხი ნამუშევრების მიღმა",
+      "headline": "გაიცანით გუნდი",
       "m1": {
         "name": "Alex Rivera",
-        "role": "Founder & Lead Designer"
+        "role": "დამფუძნებელი და წამყვანი დიზაინერი"
       },
       "m2": {
         "name": "Maria Santos",
-        "role": "Interior Design Lead"
+        "role": "ინტერიერის დიზაინის ხელმძღვანელი"
       },
       "m3": {
         "name": "James Park",
-        "role": "Project Manager"
+        "role": "პროექტის მენეჯერი"
       },
       "m4": {
         "name": "Dana Mitchell",
-        "role": "3D Visualization Specialist"
+        "role": "3D ვიზუალიზაციის სპეციალისტი"
       }
     },
     "values": {
-      "sectionLabel": "What we stand for",
-      "headline": "Our values",
+      "sectionLabel": "ჩვენი ღირებულებები",
+      "headline": "რას ვცემთ პატივს",
       "v1": {
-        "title": "Craftsmanship",
-        "desc": "We hold ourselves to the highest standards of quality — in materials, execution, and finish. No shortcuts, ever."
+        "title": "ოსტატობა",
+        "desc": "ჩვენ ვიცავთ ხარისხის უმაღლეს სტანდარტებს — მასალებში, შესრულებასა და საბოლოო სახეში. არანაირი კომპრომისი ხარისხზე."
       },
       "v2": {
-        "title": "Transparency",
-        "desc": "We communicate clearly and honestly throughout every project. You always know where things stand."
+        "title": "გამჭვირვალობა",
+        "desc": "ჩვენ ვკომუნიკაციობთ მკაფიოდ და გულწრფელად თითოეული პროექტის განმავლობაში. თქვენ ყოველთვის იცით, რა ეტაპზეა სამუშაოები."
       },
       "v3": {
-        "title": "Design Integrity",
-        "desc": "We protect the design vision from concept to completion — because the details are what make the difference."
+        "title": "დიზაინის მთლიანობა",
+        "desc": "ჩვენ ვუფრთხილდებით დიზაინ-ხედვას კონცეფციიდან დასრულებამდე — რადგან დეტალებია ის, რაც ქმნის განსხვავებას."
       }
     },
     "cta": {
-      "headline": "Ready to work together?",
-      "desc": "Let's talk about your project. We'd love to hear your ideas and show you what's possible.",
-      "btnContact": "Get in Touch",
-      "btnProjects": "View Projects"
+      "headline": "მზად ხართ თანამშრომლობისთვის?",
+      "desc": "ვისაუბროთ თქვენს პროექტზე. სიამოვნებით მოვისმენთ თქვენს იდეებს და გაჩვენებთ შესაძლებლობებს.",
+      "btnContact": "დაგვიკავშირდით",
+      "btnProjects": "იხილეთ პროექტები"
     }
   },
   "services": {
     "hero": {
-      "sectionLabel": "What we offer",
-      "headline": "Our Expertise",
-      "desc": "From concept to construction — a full suite of renovation services under one roof."
+      "sectionLabel": "რას გთავაზობთ",
+      "headline": "ჩვენი ექსპერტიზა",
+      "desc": "კონცეფციიდან მშენებლობამდე — სარემონტო მომსახურების სრული სპექტრი ერთ სივრცეში."
     },
     "kitchen": {
       "num": "01",
-      "headline": "Kitchen Remodel",
-      "desc": "The kitchen is the heart of the home. We design and build kitchens that balance beauty and function — custom cabinetry, stone countertops, curated hardware, and intelligent layouts that make cooking a pleasure.",
+      "headline": "სამზარეულოს რემონტი",
+      "desc": "სამზარეულო სახლის გულია. ჩვენ ვქმნით სამზარეულოებს, რომლებიც აბალანსებს სილამაზესა და ფუნქციონალურობას — ინდივიდუალური კარადები, ქვის ზედაპირები და გონივრული დაგეგმარება, რაც კულინარიას სიამოვნებად აქცევს.",
       "items": [
-        "Custom cabinetry & millwork",
-        "Stone, quartz & butcher block countertops",
-        "Kitchen island design & installation",
-        "Backsplash & tile work",
-        "Appliance integration",
-        "Plumbing & electrical upgrades"
+        "ინდივიდუალური კარადები და ხის ნაკეთობები",
+        "ქვის, კვარცის და მასიური ხის ზედაპირები",
+        "სამზარეულოს „კუნძულის“ დიზაინი და მონტაჟი",
+        "კერამიკული ფილების (ე.წ. ფართუკის) დაგება",
+        "ტექნიკის ინტეგრაცია",
+        "სანტექნიკისა და ელექტროობის განახლება"
       ],
-      "cta": "Request a Consultation"
+      "cta": "მოითხოვეთ კონსულტაცია"
     },
     "bathroom": {
       "num": "02",
-      "headline": "Bathroom Remodel",
-      "desc": "We transform bathrooms into serene retreats. Whether a primary suite spa, a sleek guest bath, or a powder room that makes a statement — our bathroom renovations combine luxury materials with timeless design.",
+      "headline": "აბაზანის რემონტი",
+      "desc": "ჩვენ ვაქცევთ აბაზანებს სიმშვიდის ოაზისად. იქნება ეს სპა-ტიპის მთავარი აბაზანა თუ თანამედროვე სტუმრების საპირფარეშო — ჩვენი რემონტი აერთიანებს მდიდრულ მასალებსა და მარადიულ დიზაინს.",
       "items": [
-        "Walk-in shower & freestanding tub design",
-        "Custom tile & mosaic work",
-        "Vanity & storage solutions",
-        "Heated flooring systems",
-        "Lighting design",
-        "Plumbing fixture selection & installation"
+        "ღია შხაპისა და დამოუკიდებელი აბაზანის დიზაინი",
+        "ინდივიდუალური ფილებისა და მოზაიკის დაგება",
+        "ხელსაბანის კარადები და სათავსოების გადაწყვეტილებები",
+        "იატაკის გათბობის სისტემები",
+        "განათების დიზაინი",
+        "სანტექნიკის მოწყობილობების შერჩევა და მონტაჟი"
       ],
-      "cta": "Request a Consultation"
+      "cta": "მოითხოვეთ კონსულტაცია"
     },
     "fullHome": {
       "num": "03",
-      "headline": "Full Home Renovation",
-      "desc": "Complete home transformations that reimagine the entire space. We handle everything — design, permitting, construction, and the final walk-through — delivering a cohesive result that feels like a brand new home.",
+      "headline": "სახლის სრული რემონტი",
+      "desc": "სახლის სრული ტრანსფორმაცია სივრცის ახლებური ხედვით. ჩვენ ვზრუნავთ ყველაფერზე — დიზაინიდან და ნებართვებიდან დაწყებული, მშენებლობითა და საბოლოო ჩაბარებით დამთავრებული.",
       "items": [
-        "Whole-home design & space planning",
-        "Structural changes & open floor plans",
-        "Flooring throughout (hardwood, tile, stone)",
-        "Paint, trim & finish carpentry",
-        "Electrical, plumbing & HVAC updates",
-        "Project management & permitting"
+        "სახლის სრული დიზაინი და დაგეგმარება",
+        "სტრუქტურული ცვლილებები და ღია სივრცეები",
+        "იატაკის დაგება (ხე, ფილა, ქვა)",
+        "სამღებრო და მოსაპირკეთებელი სამუშაოები",
+        "ელექტროობის, სანტექნიკის და გათბობა-გაგრილების განახლება",
+        "პროექტის მართვა და ნებართვები"
       ],
-      "cta": "Request a Consultation"
+      "cta": "მოითხოვეთ კონსულტაცია"
     },
     "outdoor": {
       "num": "04",
-      "headline": "Outdoor & Patio",
-      "desc": "Arizona's climate begs for exceptional outdoor living. We design and build outdoor spaces that extend your home into the desert landscape — covered patios, outdoor kitchens, pools, and desert-inspired landscaping.",
+      "headline": "გარე სივრცე და ეზო",
+      "desc": "საქართველოს კლიმატი იდეალურია გარე დასასვენებელი სივრცეებისთვის. ჩვენ ვქმნით ეზოებს, რომლებიც თქვენი სახლის გაგრძელებაა — გადახურული ტერასები, საზაფხულო სამზარეულოები და ლანდშაფტის დიზაინი.",
       "items": [
-        "Covered patio & pergola design",
-        "Outdoor kitchen & BBQ stations",
-        "Pool deck & hardscape",
-        "Desert-adapted landscaping",
-        "Lighting & irrigation",
-        "Shade structure installation"
+        "გადახურული ტერასებისა და ფანჩატურების დიზაინი",
+        "საზაფხულო სამზარეულო და მწვადის კუთხე",
+        "აუზის პერიმეტრი და მოპირკეთება",
+        "ლანდშაფტის დიზაინი",
+        "განათება და სარწყავი სისტემები",
+        "ჩრდილის სტრუქტურების მონტაჟი"
       ],
-      "cta": "Request a Consultation"
+      "cta": "მოითხოვეთ კონსულტაცია"
     },
     "viz": {
       "num": "05",
-      "headline": "3D Visualization",
-      "desc": "See your renovation before construction begins. Our photorealistic 3D renderings let you explore every detail — materials, finishes, lighting, and layout — so you can make confident decisions with complete clarity.",
+      "headline": "3D ვიზუალიზაცია",
+      "desc": "ნახეთ თქვენი რემონტი მშენებლობის დაწყებამდე. ჩვენი ფოტორეალისტური 3D რენდერები საშუალებას გაძლევთ შეისწავლოთ ყოველი დეტალი — მასალები, განათება და დაგეგმარება სრული სიზუსტით.",
       "items": [
-        "Photorealistic interior renderings",
-        "Virtual walkthroughs",
-        "Material & finish selection boards",
-        "Multiple design iterations",
-        "Presentation-ready visuals"
+        "ფოტორეალისტური ინტერიერის რენდერები",
+        "ვირტუალური ტური",
+        "მასალებისა და ფაქტურების შერჩევა",
+        "დიზაინის რამდენიმე ვარიანტი",
+        "პრეზენტაციისთვის მზა ვიზუალები"
       ],
-      "cta": "Request a Consultation"
+      "cta": "მოითხოვეთ კონსულტაცია"
     },
     "process": {
-      "sectionLabel": "How we work",
-      "headline": "Our process",
+      "sectionLabel": "როგორ ვმუშაობთ",
+      "headline": "ჩვენი პროცესი",
       "s1": {
         "num": "01",
-        "title": "Discovery",
-        "desc": "We meet to understand your goals, timeline, and budget. No pressure, just conversation."
+        "title": "კვლევა",
+        "desc": "ჩვენ ვხვდებით თქვენი მიზნების, ვადებისა და ბიუჯეტის გასაგებად. ზეწოლის გარეშე, უბრალოდ საუბარი."
       },
       "s2": {
         "num": "02",
-        "title": "Design",
-        "desc": "Our team creates detailed designs and 3D visualizations so you can see the future before it's built."
+        "title": "დიზაინი",
+        "desc": "ჩვენი გუნდი ქმნის დეტალურ პროექტებსა და 3D ვიზუალიზაციას, რათა დაინახოთ მომავალი მშენებლობამდე."
       },
       "s3": {
         "num": "03",
-        "title": "Planning",
-        "desc": "We handle all permitting, material procurement, and scheduling. Every detail is mapped."
+        "title": "დაგეგმვა",
+        "desc": "ჩვენ ვაგვარებთ ნებართვებს, მასალების შესყიდვასა და გრაფიკს. ყოველი დეტალი გაწერილია."
       },
       "s4": {
         "num": "04",
-        "title": "Build",
-        "desc": "Skilled craftsmen execute the work with precision. We maintain quality control at every stage."
+        "title": "მშენებლობა",
+        "desc": "გამოცდილი ხელოსნები ასრულებენ სამუშაოს სიზუსტით. ჩვენ ვაკონტროლებთ ხარისხს ყველა ეტაპზე."
       },
       "s5": {
         "num": "05",
-        "title": "Handover",
-        "desc": "A thorough walk-through ensures every detail is perfect. Your new space is ready to enjoy."
+        "title": "ჩაბარება",
+        "desc": "საბოლოო დათვალიერება უზრუნველყოფს ყველა დეტალის იდეალურობას. თქვენი ახალი სივრცე მზად არის."
       }
     },
     "cta": {
-      "headline": "Start your renovation today",
-      "desc": "Schedule a free consultation and let's talk about transforming your space.",
-      "btn": "Get a Free Quote"
+      "headline": "დაიწყეთ რემონტი დღესვე",
+      "desc": "დაგეგმეთ უფასო კონსულტაცია და ვისაუბროთ თქვენი სივრცის ტრანსფორმაციაზე.",
+      "btn": "მიიღეთ უფასო შეფასება"
     }
   },
   "projects": {
     "hero": {
-      "sectionLabel": "We design homes of superior quality and character",
-      "headline": "Selected Projects",
-      "desc": "Check out our portfolio to see the quality of our work —"
+      "sectionLabel": "ჩვენ ვქმნით უმაღლესი ხარისხისა და ხასიათის მქონე სახლებს",
+      "headline": "რჩეული პროექტები",
+      "desc": "გაეცანით ჩვენს პორტფოლიოს, რათა დარწმუნდეთ ჩვენი ნამუშევრების ხარისხში —"
     },
-    "heroCount": "projects in 2025",
+    "heroCount": "პროექტი 2025 წელს",
     "filter": {
-      "all": "All Projects",
-      "kitchen": "Kitchen",
-      "bathroom": "Bathroom",
-      "fullHome": "Full Home",
-      "outdoor": "Outdoor"
+      "all": "ყველა პროექტი",
+      "kitchen": "სამზარეულო",
+      "bathroom": "აბაზანა",
+      "fullHome": "სრული რემონტი",
+      "outdoor": "გარე სივრცე"
     },
     "cards": {
       "p01": {
-        "tag": "Kitchen Remodel",
-        "title": "Desert Modern Kitchen",
-        "desc": "Scottsdale, AZ — Complete kitchen transformation with custom white oak cabinetry, quartzite island, and panoramic desert views."
+        "tag": "სამზარეულოს რემონტი",
+        "title": "თანამედროვე სამზარეულო",
+        "desc": "ვაკე — სამზარეულოს სრული ტრანსფორმაცია თეთრი მუხის ინდივიდუალური კარადებით, კვარციტის ზედაპირით და პანორამული ხედებით."
       },
       "p02": {
-        "tag": "Bathroom Remodel",
-        "title": "Spa Master Bath",
-        "desc": "Paradise Valley — Freestanding soaking tub, travertine tile floors, and custom floating vanity."
+        "tag": "აბაზანის რემონტი",
+        "title": "სპა-ტიპის მთავარი აბაზანა",
+        "desc": "წყნეთი — დამოუკიდებელი აბაზანა, ტრავერტინის იატაკი და ინდივიდუალური „მცურავი“ ხელსაბანი კარადა."
       },
       "p03": {
-        "tag": "Outdoor & Patio",
-        "title": "Desert Outdoor Living",
-        "desc": "Arcadia — Full outdoor kitchen, covered patio, and resort-style pool deck with native desert landscaping."
+        "tag": "გარე სივრცე და ეზო",
+        "title": "დასასვენებელი ზონა ეზოში",
+        "desc": "საგურამო — სრული საზაფხულო სამზარეულო, გადახურული ტერასა და აუზის პერიმეტრი ლანდშაფტის დიზაინით."
       },
       "p04": {
-        "tag": "Full Home Renovation",
-        "title": "Complete Home Transformation",
-        "desc": "Scottsdale — Gut renovation of a 1980s ranch home into a modern desert retreat. New open floor plan, all-new finishes throughout."
+        "tag": "სახლის სრული რემონტი",
+        "title": "სახლის სრული ტრანსფორმაცია",
+        "desc": "თბილისი — ძველი სახლის სრული რეკონსტრუქცია თანამედროვე საცხოვრებლად. ახალი ღია დაგეგმარება და უმაღლესი ხარისხის მოპირკეთება."
       },
       "p05": {
-        "tag": "Kitchen Remodel",
-        "title": "Modern Farmhouse Kitchen",
-        "desc": "Mesa — Shaker cabinetry in sage green, butcher block counters, apron sink, and custom open shelving."
+        "tag": "სამზარეულოს რემონტი",
+        "title": "მოდერნ-ფარმჰაუსის სტილი",
+        "desc": "დიღომი — სალბისფერი „შეიკერ“ კარადები, მასიური ხის ზედაპირები და ღია თაროები."
       },
       "p06": {
-        "tag": "Bathroom Remodel",
-        "title": "Minimalist Guest Bath",
-        "desc": "Tempe — Micro-cement walls, wall-mounted fixtures, and frameless glass shower."
+        "tag": "აბაზანის რემონტი",
+        "title": "მინიმალისტური სტუმრების აბაზანა",
+        "desc": "საბურთალო — მიკრო-ცემენტის კედლები, ჩაშენებული სანტექნიკა და უჩარჩოო შუშის საშხაპე."
       },
       "p07": {
-        "tag": "Custom Addition",
-        "title": "Casita & Guest Suite",
-        "desc": "Chandler — 600 sq ft casita addition with full bath, kitchenette, and private courtyard entrance."
+        "tag": "ინდივიდუალური დანამატი",
+        "title": "სტუმრების ფლიგელი",
+        "desc": "მცხეთა — 60 კვ.მ ფართის დანამატი საკუთარი აბაზანით, მცირე სამზარეულოთი და პერსონალური შესასვლელით."
       },
       "p08": {
-        "tag": "Full Home Renovation",
-        "title": "Mid-Century Modern Revival",
-        "desc": "Phoenix — Faithful restoration and modernization of a 1962 mid-century home. New systems, preserved character."
+        "tag": "სახლის სრული რემონტი",
+        "title": "Mid-Century სტილის აღდგენა",
+        "desc": "თბილისი — ისტორიული სახლის რესტავრაცია და მოდერნიზაცია. ძველი ხასიათის შენარჩუნება ახალი საინჟინრო სისტემებით."
       }
     },
     "cta": {
-      "headline": "Your home could be next",
-      "desc": "Let's talk about your renovation. We'll show you what's possible.",
-      "btn": "Get a Free Quote"
+      "headline": "თქვენი სახლი შეიძლება იყოს შემდეგი",
+      "desc": "ვისაუბროთ თქვენს რემონტზე. ჩვენ გაჩვენებთ შესაძლებლობებს.",
+      "btn": "მიიღეთ უფასო შეფასება"
     }
   },
   "contact": {
     "hero": {
-      "sectionLabel": "Let's talk",
-      "headline": "Get in Touch",
-      "desc": "Ready to start your renovation? We'd love to hear about your project. Reach out and we'll get back to you within 24 hours."
+      "sectionLabel": "ვისაუბროთ",
+      "headline": "დაგვიკავშირდით",
+      "desc": "მზად ხართ რემონტის დასაწყებად? სიამოვნებით მოვისმენთ თქვენი პროექტის შესახებ. მოგვწერეთ და ჩვენ 24 საათის განმავლობაში დაგიკავშირდებით."
     },
     "info": {
-      "heading": "Let's discuss your project",
-      "desc": "Whether you have a full vision or just a rough idea, we're here to help you bring it to life. Fill out the form or contact us directly.",
+      "heading": "განვიხილოთ თქვენი პროექტი",
+      "desc": "გაქვთ ჩამოყალიბებული ხედვა თუ მხოლოდ ზოგადი იდეა, ჩვენ აქ ვართ მის გასაცოცხლებლად. შეავსეთ ფორმა ან დაგვიკავშირდით პირდაპირ.",
       "phone": {
-        "label": "Phone"
+        "label": "ტელეფონი"
       },
       "email": {
-        "label": "Email"
+        "label": "ელ-ფოსტა"
       },
       "location": {
-        "label": "Location"
+        "label": "მდებარეობა"
       },
       "hours": {
-        "label": "Office Hours",
-        "weekdays": "Monday – Friday: 8am – 6pm",
-        "saturday": "Saturday: By appointment"
+        "label": "სამუშაო საათები",
+        "weekdays": "ორშაბათი – პარასკევი: 08:00 – 18:00",
+        "saturday": "შაბათი: მხოლოდ შეხვედრით"
       },
-      "mapLabel": "Tbilisi, GE"
+      "mapLabel": "თბილისი, საქართველო"
     },
     "form": {
-      "sectionLabel": "Free consultation",
-      "headline": "Tell us about your project",
-      "firstName": "First Name",
-      "lastName": "Last Name",
-      "email": "Email",
-      "phone": "Phone (optional)",
-      "service": "Service Interested In",
-      "budget": "Approximate Budget",
-      "message": "Tell us about your project",
-      "submit": "Send Message",
-      "sending": "Sending…",
-      "sent": "Message Sent!",
+      "sectionLabel": "უფასო კონსულტაცია",
+      "headline": "გვიამბეთ თქვენი პროექტის შესახებ",
+      "firstName": "სახელი",
+      "lastName": "გვარი",
+      "email": "ელ-ფოსტა",
+      "phone": "ტელეფონი (სურვილისამებრ)",
+      "service": "რომელი სერვისით ინტერესდებით?",
+      "budget": "მიახლოებითი ბიუჯეტი",
+      "message": "გვიამბეთ თქვენი პროექტის შესახებ",
+      "submit": "შეტყობინების გაგზავნა",
+      "sending": "იგზავნება…",
+      "sent": "შეტყობინება გაიგზავნა!",
       "placeholders": {
-        "firstName": "Alex",
-        "lastName": "Johnson",
+        "firstName": "ალექსანდრე",
+        "lastName": "ბერიძე",
         "email": "alex@example.com",
-        "phone": "+1 (480) 000 0000",
-        "message": "Describe your renovation goals, timeline, and any specific details that would help us understand your vision…"
+        "phone": "+995 (5XX) XX XX XX",
+        "message": "აღწერეთ თქვენი რემონტის მიზნები, ვადები და ნებისმიერი დეტალი, რომელიც დაგვეხმარება თქვენი ხედვის უკეთ გაგებაში…"
       },
       "serviceOptions": {
-        "default": "Select a service…",
-        "kitchen": "Kitchen Remodel",
-        "bathroom": "Bathroom Remodel",
-        "fullHome": "Full Home Renovation",
-        "outdoor": "Outdoor & Patio",
-        "viz": "3D Visualization",
-        "addition": "Custom Addition",
-        "other": "Other / Not sure"
+        "default": "აირჩიეთ სერვისი…",
+        "kitchen": "სამზარეულოს რემონტი",
+        "bathroom": "აბაზანის რემონტი",
+        "fullHome": "სახლის სრული რემონტი",
+        "outdoor": "გარე სივრცე და ეზო",
+        "viz": "3D ვიზუალიზაცია",
+        "addition": "ინდივიდუალური დანამატი",
+        "other": "სხვა / არ ვარ დარწმუნებული"
       },
       "budgetOptions": {
-        "default": "Select a range…",
-        "b1": "Under $25,000",
-        "b2": "$25,000 – $75,000",
-        "b3": "$75,000 – $150,000",
-        "b4": "$150,000 – $300,000",
-        "b5": "$300,000+"
+        "default": "აირჩიეთ დიაპაზონი…",
+        "b1": "25,000 ₾-ზე ნაკლები",
+        "b2": "25,000 ₾ – 75,000 ₾",
+        "b3": "75,000 ₾ – 150,000 ₾",
+        "b4": "150,000 ₾ – 300,000 ₾",
+        "b5": "300,000 ₾+"
       }
     }
   }

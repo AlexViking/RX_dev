@@ -1,0 +1,49 @@
+/* =============================================
+   RX RENOVATION — FONT DECLARATIONS
+   FiraGO Font Family for Latin & Georgian
+   ============================================= */
+
+/* FiraGO Light (300) */
+@font-face {
+	font-family: 'FiraGO';
+	src: url('../fonts/FiraGO_OTF_1001/Roman/FiraGO-Light.otf') format('opentype');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* FiraGO Regular (400) */
+@font-face {
+	font-family: 'FiraGO';
+	src: url('../fonts/FiraGO_OTF_1001/Roman/FiraGO-Regular.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* FiraGO SemiBold (600) */
+@font-face {
+	font-family: 'FiraGO';
+	src: url('../fonts/FiraGO_OTF_1001/Roman/FiraGO-SemiBold.otf') format('opentype');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* FiraGO Bold (700) */
+@font-face {
+	font-family: 'FiraGO';
+	src: url('../fonts/FiraGO_OTF_1001/Roman/FiraGO-Bold.otf') format('opentype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* FiraGO ExtraBold (800) */
+@font-face {
+	font-family: 'FiraGO';
+	src: url('../fonts/FiraGO_OTF_1001/Roman/FiraGO-ExtraBold.otf') format('opentype');
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+}

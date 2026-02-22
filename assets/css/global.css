@@ -27,8 +27,8 @@
 	--color-border-dark:  #2e2b25;
 
 	/* Typography */
-	--font-display:  'Helvetica Neue', 'Arial', sans-serif;
-	--font-body:     'Helvetica Neue', 'Arial', sans-serif;
+	--font-display:  'FiraGO', 'Helvetica Neue', 'Arial', sans-serif;
+	--font-body:     'FiraGO', 'Helvetica Neue', 'Arial', sans-serif;
 	--font-mono:     'Courier New', monospace;
 
 	--text-xs:    0.75rem;
