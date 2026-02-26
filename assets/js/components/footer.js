@@ -18,7 +18,6 @@ export function renderFooter() {
 					<h4 data-i18n="footer.nav.title">Navigate</h4>
 					<ul>
 						<li><a href="index.html"    data-i18n="footer.nav.home">Home</a></li>
-						<li><a href="about.html"    data-i18n="footer.nav.about">About Us</a></li>
 						<li><a href="services.html" data-i18n="footer.nav.services">Services</a></li>
 						<li><a href="projects.html" data-i18n="footer.nav.projects">Projects</a></li>
 						<li><a href="contact.html"  data-i18n="footer.nav.contact">Contact</a></li>

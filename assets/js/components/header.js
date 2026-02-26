@@ -4,14 +4,13 @@ import { LANGUAGES } from '../i18n/i18n.js';
 export function renderHeader(currentPage = '') {
 	const pages = [
 		{ href: 'index.html',    key: 'nav.home',     id: 'home'     },
-		{ href: 'about.html',    key: 'nav.about',    id: 'about'    },
 		{ href: 'services.html', key: 'nav.services', id: 'services' },
 		{ href: 'projects.html', key: 'nav.projects', id: 'projects' },
 		{ href: 'contact.html',  key: 'nav.contact',  id: 'contact'  },
 	];
 
 	/* Fallback English labels used as visible text before i18n applies */
-	const fallback = { home: 'Home', about: 'About', services: 'Services', projects: 'Projects', contact: 'Contact' };
+	const fallback = { home: 'Home', services: 'Services', projects: 'Projects', contact: 'Contact' };
 
 	const navLinks = pages.map(p => {
 		const isActive = currentPage === p.id ? 'active' : '';
@@ -64,16 +63,21 @@ export function renderHeader(currentPage = '') {
 						<!-- Theme -->
 						<div class="settings-section">
 							<span class="settings-label" data-i18n="nav.theme">Theme</span>
-							<button class="theme-toggle" id="theme-toggle" data-i18n-aria="nav.toggleDark" aria-label="Toggle dark mode">
-								<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-								</svg>
-								<svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<circle cx="12" cy="12" r="4"/>
-									<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-								</svg>
-								<span class="theme-label" data-theme-label></span>
-							</button>
+							<div class="theme-toggle" id="theme-toggle">
+								<button class="theme-btn" data-theme-btn="light" aria-pressed="false">
+									<svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<circle cx="12" cy="12" r="4"/>
+										<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+									</svg>
+									<span class="theme-label">Light</span>
+								</button>
+								<button class="theme-btn" data-theme-btn="dark" aria-pressed="false">
+									<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+									</svg>
+									<span class="theme-label">Dark</span>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -88,6 +92,14 @@ export function renderHeader(currentPage = '') {
 
 		<!-- Mobile nav overlay -->
 		<nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">
+			<!-- Close button -->
+			<button class="nav-mobile-close" id="nav-mobile-close" aria-label="Close menu">
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="18" y1="6" x2="6" y2="18"></line>
+					<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+			</button>
+
 			<div class="nav-mobile-links">
 				${mobileLinks}
 			</div>
@@ -105,15 +117,21 @@ export function renderHeader(currentPage = '') {
 				<!-- Theme Toggle -->
 				<div class="nav-mobile-setting-item">
 					<span class="setting-label" data-i18n="nav.theme">Theme</span>
-					<button class="theme-toggle theme-toggle-mobile" id="theme-toggle-mobile" data-i18n-aria="nav.toggleDark" aria-label="Toggle dark mode">
-						<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-						</svg>
-						<svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<circle cx="12" cy="12" r="4"/>
-							<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-						</svg>
-					</button>
+					<div class="theme-toggle theme-toggle-mobile" id="theme-toggle-mobile">
+						<button class="theme-btn" data-theme-btn-mobile="light" aria-pressed="false">
+							<svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="12" r="4"/>
+								<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+							</svg>
+							<span class="theme-label">Light</span>
+						</button>
+						<button class="theme-btn" data-theme-btn-mobile="dark" aria-pressed="false">
+							<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+							</svg>
+							<span class="theme-label">Dark</span>
+						</button>
+					</div>
 				</div>
 			</div>
 
@@ -129,7 +147,7 @@ export function initHeader() {
 	const header          = document.getElementById('site-header');
 	const menuBtn         = document.getElementById('menu-btn');
 	const mobileNav       = document.getElementById('nav-mobile');
-	const themeBtn        = document.getElementById('theme-toggle');
+	const themeToggle     = document.getElementById('theme-toggle');
 	const themeBtnMobile  = document.getElementById('theme-toggle-mobile');
 	const settingsToggle  = document.getElementById('settings-toggle');
 	const settingsMenu    = document.getElementById('settings-menu');
@@ -161,6 +179,15 @@ export function initHeader() {
 	}
 
 	/* ── Mobile menu ── */
+	const closeMobileMenu = () => {
+		if (mobileNav && menuBtn) {
+			mobileNav.classList.remove('open');
+			menuBtn.classList.remove('open');
+			menuBtn.setAttribute('aria-expanded', 'false');
+			document.body.style.overflow = '';
+		}
+	};
+
 	if (menuBtn && mobileNav) {
 		menuBtn.addEventListener('click', () => {
 			const isOpen = mobileNav.classList.toggle('open');
@@ -175,32 +202,65 @@ export function initHeader() {
 			}
 		});
 
+		// Close button in mobile menu
+		const mobileCloseBtn = document.getElementById('nav-mobile-close');
+		if (mobileCloseBtn) {
+			mobileCloseBtn.addEventListener('click', closeMobileMenu);
+		}
+
+		// Close when clicking nav links
 		mobileNav.querySelectorAll('.nav-mobile-link').forEach(link => {
-			link.addEventListener('click', () => {
-				mobileNav.classList.remove('open');
-				menuBtn.classList.remove('open');
-				menuBtn.setAttribute('aria-expanded', 'false');
-				document.body.style.overflow = '';
-			});
+			link.addEventListener('click', closeMobileMenu);
 		});
 	}
 
 	/* ── Theme toggle ── */
-	const toggleTheme = () => {
-		const current = document.documentElement.getAttribute('data-theme');
-		const next    = current === 'dark' ? 'light' : 'dark';
-		document.documentElement.setAttribute('data-theme', next);
-		localStorage.setItem('rx-theme', next);
+	const setTheme = (theme) => {
+		document.documentElement.setAttribute('data-theme', theme);
+		localStorage.setItem('rx-theme', theme);
+		updateThemeButtons(theme);
 	};
 
+	const updateThemeButtons = (theme) => {
+		// Update desktop theme buttons
+		document.querySelectorAll('[data-theme-btn]').forEach(btn => {
+			const btnTheme = btn.getAttribute('data-theme-btn');
+			const isActive = btnTheme === theme;
+			btn.classList.toggle('active', isActive);
+			btn.setAttribute('aria-pressed', String(isActive));
+		});
+
+		// Update mobile theme buttons
+		document.querySelectorAll('[data-theme-btn-mobile]').forEach(btn => {
+			const btnTheme = btn.getAttribute('data-theme-btn-mobile');
+			const isActive = btnTheme === theme;
+			btn.classList.toggle('active', isActive);
+			btn.setAttribute('aria-pressed', String(isActive));
+		});
+	};
+
+	// Initialize theme
 	const saved = localStorage.getItem('rx-theme') || 'light';
 	document.documentElement.setAttribute('data-theme', saved);
+	updateThemeButtons(saved);
 
-	if (themeBtn) {
-		themeBtn.addEventListener('click', toggleTheme);
+	// Add click handlers to desktop theme buttons
+	if (themeToggle) {
+		themeToggle.querySelectorAll('[data-theme-btn]').forEach(btn => {
+			btn.addEventListener('click', () => {
+				const theme = btn.getAttribute('data-theme-btn');
+				setTheme(theme);
+			});
+		});
 	}
 
+	// Add click handlers to mobile theme buttons
 	if (themeBtnMobile) {
-		themeBtnMobile.addEventListener('click', toggleTheme);
+		themeBtnMobile.querySelectorAll('[data-theme-btn-mobile]').forEach(btn => {
+			btn.addEventListener('click', () => {
+				const theme = btn.getAttribute('data-theme-btn-mobile');
+				setTheme(theme);
+			});
+		});
 	}
 }
