@@ -53,19 +53,24 @@
     },
     "intro": {
       "sectionLabel": "We create spaces\nwith meaning and\nmeticulous detail",
-      "headline": "Our Studio",
+      "headline": "About Us",
       "body": "RenovationX is a team of designers and craftsmen specializing in high-end residential renovations. We are driven by a passion for clean lines, natural materials, and livable design. Our approach combines creative vision with technical precision — every project is a personal collaboration from the first sketch to the final build."
     },
     "stats": {
-      "renovations": "Custom Renovations",
-      "projects": "Projects in 2025",
       "experience": "Years Experience",
-      "satisfaction": "Client Satisfaction %",
+      "completed": "Completed Projects",
+      "ongoing": "Ongoing Projects",
+      "ontime": "Projects Delivered On Time %",
       "quote": "\"We are proud of how we transform ideas into habitable masterpieces.\""
     },
     "expertise": {
       "sectionLabel": "From concept to construction —\nall in one studio",
-      "headline": "Our Expertise",
+      "headline": "Our Services",
+      "renovation": {
+        "title": "Renovation Work",
+        "desc": "Our team performs all types of renovation work with precision and quality.",
+        "cta": "Request a service"
+      },
       "kitchen": {
         "title": "Kitchen Remodel",
         "desc": "Complete kitchen transformations — custom cabinetry, countertops, layouts, and lighting designed to inspire.",
@@ -103,21 +108,9 @@
       },
       "viewAll": "View All Projects"
     },
-    "testimonials": {
-      "sectionLabel": "What clients say",
-      "headline": "Trusted by homeowners\nacross Arizona",
-      "t1": {
-        "quote": "RX completely transformed our kitchen. The attention to detail was remarkable — from the custom cabinetry to the lighting, everything was perfect.",
-        "author": "— Jennifer & Mark L., Scottsdale"
-      },
-      "t2": {
-        "quote": "We hired RX for a full home renovation and couldn't be happier. They kept us informed every step of the way and delivered on time.",
-        "author": "— David & Sarah T., Paradise Valley"
-      },
-      "t3": {
-        "quote": "The 3D visualization service blew us away. We could see exactly what the final result would look like before construction even started.",
-        "author": "— Michael R., Arcadia"
-      }
+    "sponsors": {
+      "sectionLabel": "Our Partners",
+      "headline": "Trusted Brands"
     },
     "cta": {
       "sectionLabel": "Let's discuss\nyour future home",
@@ -243,7 +236,7 @@
       "headline": "Selected Projects",
       "desc": "Check out our portfolio to see the quality of our work —"
     },
-    "heroCount": "projects in 2025",
+    "heroCount": "projects",
     "filter": {
       "all": "All Projects",
       "kitchen": "Kitchen",
@@ -314,15 +307,11 @@
       "email": {
         "label": "Email"
       },
-      "location": {
-        "label": "Location"
-      },
       "hours": {
         "label": "Office Hours",
         "weekdays": "Monday – Friday: 8am – 6pm",
         "saturday": "Saturday: By appointment"
-      },
-      "mapLabel": "Tbilisi, GE"
+      }
     },
     "form": {
       "sectionLabel": "Free consultation",
@@ -332,16 +321,15 @@
       "email": "Email",
       "phone": "Phone (optional)",
       "service": "Service Interested In",
-      "budget": "Approximate Budget",
       "message": "Tell us about your project",
       "submit": "Send Message",
       "sending": "Sending…",
       "sent": "Message Sent!",
       "placeholders": {
-        "firstName": "Alex",
-        "lastName": "Johnson",
-        "email": "alex@example.com",
-        "phone": "+1 (480) 000 0000",
+        "firstName": "Name",
+        "lastName": "Lastname",
+        "email": "Email",
+        "phone": "+995 (500) 00 00 00",
         "message": "Describe your renovation goals, timeline, and any specific details that would help us understand your vision…"
       },
       "serviceOptions": {
@@ -353,14 +341,6 @@
         "viz": "3D Visualization",
         "addition": "Custom Addition",
         "other": "Other / Not sure"
-      },
-      "budgetOptions": {
-        "default": "Select a range…",
-        "b1": "Under $25,000",
-        "b2": "$25,000 – $75,000",
-        "b3": "$75,000 – $150,000",
-        "b4": "$150,000 – $300,000",
-        "b5": "$300,000+"
       }
     }
   }

@@ -77,20 +77,6 @@
 							<div class="contact-item">
 								<div class="contact-item-icon">
 									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-										<circle cx="12" cy="10" r="3"/>
-									</svg>
-								</div>
-								<div>
-									<h4 data-i18n="contact.info.location.label">Location</h4>
-									<p data-i18n="common.locationFull">Scottsdale, Arizona 85251</p>
-									<p style="font-size: var(--text-sm); color: var(--color-text-light);" data-i18n="common.locationServing">Serving greater Phoenix metro area</p>
-								</div>
-							</div>
-
-							<div class="contact-item">
-								<div class="contact-item-icon">
-									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 										<circle cx="12" cy="12" r="10"/>
 										<polyline points="12 6 12 12 16 14"/>
 									</svg>
@@ -100,16 +86,6 @@
 									<p data-i18n="contact.info.hours.weekdays">Monday – Friday: 8am – 6pm</p>
 									<p data-i18n="contact.info.hours.saturday">Saturday: By appointment</p>
 								</div>
-							</div>
-						</div>
-
-						<div class="contact-map">
-							<div class="map-placeholder">
-								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-									<circle cx="12" cy="10" r="3"/>
-								</svg>
-								<p data-i18n="contact.info.mapLabel">Scottsdale, AZ</p>
 							</div>
 						</div>
 					</div>
@@ -153,28 +129,27 @@
 
 							<div class="form-group">
 								<label for="service" data-i18n="contact.form.service">Service Interested In</label>
-								<select id="service" name="service">
-									<option value="" data-i18n="contact.form.serviceOptions.default">Select a service…</option>
-									<option data-i18n="contact.form.serviceOptions.kitchen">Kitchen Remodel</option>
-									<option data-i18n="contact.form.serviceOptions.bathroom">Bathroom Remodel</option>
-									<option data-i18n="contact.form.serviceOptions.fullHome">Full Home Renovation</option>
-									<option data-i18n="contact.form.serviceOptions.outdoor">Outdoor & Patio</option>
-									<option data-i18n="contact.form.serviceOptions.viz">3D Visualization</option>
-									<option data-i18n="contact.form.serviceOptions.addition">Custom Addition</option>
-									<option data-i18n="contact.form.serviceOptions.other">Other / Not sure</option>
-								</select>
-							</div>
-
-							<div class="form-group">
-								<label for="budget" data-i18n="contact.form.budget">Approximate Budget</label>
-								<select id="budget" name="budget">
-									<option value="" data-i18n="contact.form.budgetOptions.default">Select a range…</option>
-									<option data-i18n="contact.form.budgetOptions.b1">Under $25,000</option>
-									<option data-i18n="contact.form.budgetOptions.b2">$25,000 – $75,000</option>
-									<option data-i18n="contact.form.budgetOptions.b3">$75,000 – $150,000</option>
-									<option data-i18n="contact.form.budgetOptions.b4">$150,000 – $300,000</option>
-									<option data-i18n="contact.form.budgetOptions.b5">$300,000+</option>
-								</select>
+								<div class="custom-select-wrapper">
+									<div class="custom-select" data-name="service">
+										<div class="custom-select-trigger">
+											<span class="custom-select-value" data-i18n="contact.form.serviceOptions.default">Select a service…</span>
+											<svg class="custom-select-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="6 9 12 15 18 9"/>
+											</svg>
+										</div>
+										<div class="custom-select-options">
+											<div class="custom-select-option" data-value="" data-i18n="contact.form.serviceOptions.default">Select a service…</div>
+											<div class="custom-select-option" data-value="kitchen" data-i18n="contact.form.serviceOptions.kitchen">Kitchen Remodel</div>
+											<div class="custom-select-option" data-value="bathroom" data-i18n="contact.form.serviceOptions.bathroom">Bathroom Remodel</div>
+											<div class="custom-select-option" data-value="fullHome" data-i18n="contact.form.serviceOptions.fullHome">Full Home Renovation</div>
+											<div class="custom-select-option" data-value="outdoor" data-i18n="contact.form.serviceOptions.outdoor">Outdoor & Patio</div>
+											<div class="custom-select-option" data-value="viz" data-i18n="contact.form.serviceOptions.viz">3D Visualization</div>
+											<div class="custom-select-option" data-value="addition" data-i18n="contact.form.serviceOptions.addition">Custom Addition</div>
+											<div class="custom-select-option" data-value="other" data-i18n="contact.form.serviceOptions.other">Other / Not sure</div>
+										</div>
+									</div>
+									<input type="hidden" id="service" name="service" value="">
+								</div>
 							</div>
 
 							<div class="form-group">

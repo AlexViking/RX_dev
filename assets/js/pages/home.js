@@ -27,6 +27,35 @@ function animateCounters() {
 	});
 }
 
+/* ── Sponsors carousel auto-scroll ── */
+function initSponsorsCarousel() {
+	const carousel = document.querySelector('.sponsors-carousel');
+	if (!carousel) return;
+
+	const track = carousel.querySelector('.sponsors-track');
+	const items = track.querySelectorAll('.sponsor-item');
+
+	// Only activate carousel if there are enough items
+	// Calculate if items overflow the container
+	const carouselWidth = carousel.offsetWidth;
+	const trackWidth = track.scrollWidth;
+
+	if (trackWidth > carouselWidth) {
+		// Duplicate items for seamless loop
+		items.forEach(item => {
+			const clone = item.cloneNode(true);
+			track.appendChild(clone);
+		});
+
+		// Add animation class
+		track.classList.add('animate');
+	} else {
+		// Center items if they don't overflow
+		track.style.justifyContent = 'center';
+	}
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	animateCounters();
+	initSponsorsCarousel();
 });
