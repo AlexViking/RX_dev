@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="ka" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RX — Renovation Excellence</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;1,200;1,300&family=Jost:wght@200;300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+/* ═══════════ TOKENS ═══════════ */
+:root {
+  --bg: #050504; --bg2: #0a0908;
+  --surf: #111008; --brd: rgba(255,255,255,.065);
+  --t1: #ede9df; --t2: rgba(237,233,223,.38); --t3: rgba(237,233,223,.16);
+  --au: #c4a46c; --aul: #d8bc8a; --auls: rgba(196,164,108,.1);
+  --ease: cubic-bezier(.16,1,.3,1);
+}
+[data-theme="light"] {
+  --bg: #f1ede5; --bg2: #e8e3da;
+  --surf: #ddd8ce; --brd: rgba(0,0,0,.08);
+  --t1: #100e0a; --t2: rgba(16,14,10,.38); --t3: rgba(16,14,10,.16);
+  --au: #8c6030; --aul: #a87c40; --auls: rgba(140,96,48,.09);
+}
+
+/* ═══════════ BASE ═══════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { font-size: 16px; }
+body {
+  background: var(--bg); color: var(--t1);
+  font-family: 'Jost', sans-serif; font-weight: 300;
+  overflow-x: hidden; cursor: none;
+  transition: background .6s, color .6s;
+}
+
+/* ═══════════ CURSOR ═══════════ */
+.c-dot, .c-ring {
+  position: fixed; pointer-events: none; z-index: 10000;
+  border-radius: 50%; transform: translate(-50%,-50%);
+  will-change: left, top;
+}
+.c-dot {
+  width: 5px; height: 5px; background: var(--au);
+  transition: transform .1s, width .25s var(--ease), height .25s var(--ease), background .4s;
+}
+.c-ring {
+  width: 32px; height: 32px;
+  border: 1px solid rgba(196,164,108,.4);
+  transition: width .3s var(--ease), height .3s var(--ease), border-color .3s;
+}
+body.h-nav .c-ring { width: 48px; height: 48px; border-color: var(--au); }
+body.h-obj .c-dot { width: 10px; height: 10px; background: var(--aul); }
+body.h-obj .c-ring { width: 56px; height: 56px; border-color: var(--aul); background: rgba(196,164,108,.05); }
+body.clicking .c-dot { transform: translate(-50%,-50%) scale(2.5); }
+
+/* ═══════════ GRAIN ═══════════ */
+.grain {
+  position: fixed; inset: -80px; z-index: 9990; pointer-events: none; opacity: .023;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E") repeat;
+  background-size: 200px; animation: grain .7s steps(2) infinite;
+}
+@keyframes grain {
+  0%,100%{transform:translate(0,0)} 30%{transform:translate(-2%,-3%)} 70%{transform:translate(2%,2%)}
+}
+
+/* ═══════════ NAV ═══════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 28px 58px;
+  border-bottom: 1px solid transparent;
+  transition: padding .5s var(--ease), background .5s, backdrop-filter .5s, border-color .5s;
+}
+nav.scrolled {
+  padding: 14px 58px;
+  background: rgba(5,5,4,.9);
+  backdrop-filter: blur(30px) saturate(1.5);
+  border-color: var(--brd);
+}
+[data-theme="light"] nav.scrolled { background: rgba(241,237,229,.92); }
+
+.logo { display: flex; align-items: center; gap: 13px; text-decoration: none; cursor: none; }
+.logo-mark {
+  width: 40px; height: 40px; background: var(--au);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.logo-mark::before {
+  content: ''; position: absolute; inset: 0; background: var(--t1);
+  transform: translateY(101%); transition: transform .42s var(--ease);
+}
+.logo:hover .logo-mark::before { transform: translateY(0); }
+.logo-mark span {
+  font: 500 12px/1 'Jost',sans-serif; letter-spacing: .1em;
+  color: var(--bg); position: relative; z-index: 1;
+  transition: color .42s;
+}
+.logo:hover .logo-mark span { color: var(--au); }
+.logo-name { font-size: 11px; letter-spacing: .38em; text-transform: uppercase; color: var(--t1); }
+
+.nav-links { display: flex; gap: 44px; list-style: none; }
+.nav-links a {
+  font-size: 10px; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--t2); text-decoration: none; cursor: none; position: relative;
+  transition: color .3s;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0;
+  width: 0; height: 1px; background: var(--au); transition: width .4s var(--ease);
+}
+.nav-links a:hover { color: var(--au); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-right { display: flex; align-items: center; gap: 16px; }
+.theme-toggle {
+  width: 40px; height: 22px; background: var(--surf);
+  border: 1px solid var(--brd); border-radius: 11px;
+  position: relative; cursor: none; flex-shrink: 0; transition: .4s;
+}
+.theme-toggle::after {
+  content: ''; position: absolute; top: 3px; left: 3px;
+  width: 14px; height: 14px; border-radius: 50%; background: var(--au);
+  transition: transform .38s var(--ease);
+}
+[data-theme="light"] .theme-toggle::after { transform: translateX(18px); }
+.nav-cta {
+  font-size: 9px; letter-spacing: .38em; text-transform: uppercase;
+  color: var(--bg); background: var(--au);
+  padding: 11px 24px; cursor: none; text-decoration: none;
+  transition: background .3s;
+}
+.nav-cta:hover { background: var(--aul); }
+
+/* ═══════════ HERO ═══════════ */
+.hero-wrap {
+  position: relative; width: 100%; height: 100vh;
+  overflow: hidden; display: flex; align-items: center; justify-content: center;
+}
+#rx-canvas {
+  position: absolute; inset: 0;
+  width: 100% !important; height: 100% !important;
+  z-index: 1; display: block;
+}
+
+/* Vignette + gradient */
+.hero-vignette {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background:
+    radial-gradient(ellipse 85% 85% at 50% 48%, transparent 28%, rgba(5,5,4,.72) 100%),
+    linear-gradient(180deg, rgba(5,5,4,.52) 0%, transparent 14%, transparent 84%, rgba(5,5,4,1) 100%);
+  transition: background .7s;
+}
+[data-theme="light"] .hero-vignette {
+  background:
+    radial-gradient(ellipse 85% 85% at 50% 48%, transparent 28%, rgba(241,237,229,.6) 100%),
+    linear-gradient(180deg, rgba(241,237,229,.45) 0%, transparent 14%, transparent 84%, rgba(241,237,229,1) 100%);
+}
+
+/* Thin architectural grid */
+.hero-grid {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(196,164,108,.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196,164,108,.015) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, transparent 20%, black 70%);
+}
+
+/* Corner brackets */
+.corner { position: absolute; z-index: 4; pointer-events: none; opacity: 0; animation: fadeIn .8s var(--ease) forwards; }
+.corner-tl { top: 72px; left: 38px; animation-delay: 2.1s; }
+.corner-tr { top: 72px; right: 38px; animation-delay: 2.2s; }
+.corner-bl { bottom: 68px; left: 38px; animation-delay: 2.3s; }
+.corner-br { bottom: 68px; right: 38px; animation-delay: 2.4s; }
+@keyframes fadeIn { to { opacity: 1; } }
+
+.side-label {
+  position: absolute; z-index: 4; pointer-events: none;
+  font: 400 8px/1 'Space Mono',monospace; letter-spacing: .36em;
+  text-transform: uppercase; color: var(--t3);
+  opacity: 0; animation: fadeIn .8s var(--ease) forwards 2.5s;
+}
+.side-label-l { left: 24px; top: 50%; transform: rotate(-90deg) translateX(-50%); transform-origin: left center; white-space: nowrap; }
+.side-label-r { right: 24px; top: 50%; transform: rotate(90deg) translateX(50%); transform-origin: right center; white-space: nowrap; }
+
+/* Hero text */
+.hero-content {
+  position: relative; z-index: 5; text-align: center;
+  pointer-events: none; will-change: transform, opacity;
+}
+.hero-eyebrow {
+  font: 400 9px/1 'Space Mono',monospace; letter-spacing: .6em; text-transform: uppercase;
+  color: var(--au); margin-bottom: 20px;
+  opacity: 0; animation: slideUp .9s var(--ease) forwards .5s;
+}
+.hero-title-rx {
+  font: 200 clamp(88px,13vw,168px)/0.86 'Cormorant Garamond',serif;
+  letter-spacing: -.024em; color: transparent;
+  -webkit-text-stroke: 1px rgba(237,233,223,.5);
+  display: block; mix-blend-mode: screen;
+  opacity: 0; animation: slideUp 1.4s cubic-bezier(.16,1,.3,1) forwards .2s;
+}
+[data-theme="light"] .hero-title-rx {
+  -webkit-text-stroke: 1px rgba(16,14,10,.28); mix-blend-mode: multiply;
+}
+.hero-title-sub {
+  font: 200 clamp(24px,3.8vw,50px)/1 'Cormorant Garamond',serif;
+  font-style: italic; color: var(--aul); letter-spacing: .1em; display: block;
+  margin-top: -4px;
+  opacity: 0; animation: slideUp .9s var(--ease) forwards .72s;
+}
+.hero-divider {
+  width: 1px; height: 50px;
+  background: linear-gradient(transparent, var(--au), transparent);
+  margin: 26px auto;
+  opacity: 0; animation: slideUp .7s ease forwards 1s;
+}
+.hero-tagline {
+  font-size: 9px; letter-spacing: .52em; text-transform: uppercase; color: var(--t2);
+  opacity: 0; animation: slideUp .7s ease forwards 1.2s;
+}
+@keyframes slideUp {
+  from { opacity:0; transform:translateY(18px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* Scroll indicator */
+.scroll-hint {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  z-index: 5; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  pointer-events: none;
+  opacity: 0; animation: fadeIn .9s ease forwards 1.8s;
+}
+.scroll-hint-text { font: 400 8px/1 'Space Mono',monospace; letter-spacing: .42em; text-transform: uppercase; color: var(--t3); }
+.scroll-hint-line { width: 1px; height: 52px; background: rgba(196,164,108,.18); position: relative; overflow: hidden; }
+.scroll-hint-line::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 40%; background: var(--au);
+  animation: scrollPulse 2.5s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%   { top:-40%; opacity:0; }
+  15%  { opacity:1; }
+  85%  { opacity:1; }
+  100% { top:140%; opacity:0; }
+}
+
+/* Rotate badge */
+.rotate-badge {
+  position: absolute; bottom: 36px; right: 54px; z-index: 5;
+  display: flex; align-items: center; gap: 10px;
+  font: 400 8px/1 'Space Mono',monospace; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--t3); pointer-events: none;
+  opacity: 0; animation: fadeIn .9s ease forwards 2.2s;
+}
+.rotate-badge-ring {
+  width: 24px; height: 24px; border: 1px solid var(--au); border-radius: 50%;
+  position: relative; animation: rotateSpin 5s linear infinite;
+}
+.rotate-badge-ring::after {
+  content: ''; position: absolute; top: 50%; right: 2px;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--au);
+  transform: translateY(-50%);
+}
+@keyframes rotateSpin { to { transform: rotate(360deg); } }
+
+/* Float info panels */
+.info-panel {
+  position: absolute; z-index: 6;
+  background: rgba(5,5,4,.82); backdrop-filter: blur(22px) saturate(1.4);
+  border: 1px solid rgba(196,164,108,.18); padding: 13px 20px;
+  pointer-events: none; opacity: 0; transform: translateY(7px);
+  transition: opacity .5s var(--ease), transform .5s var(--ease);
+  min-width: 145px;
+}
+[data-theme="light"] .info-panel { background: rgba(241,237,229,.88); }
+.info-panel.show { opacity: 1; transform: none; }
+.info-panel-label { font: 400 7px/1 'Space Mono',monospace; letter-spacing: .45em; text-transform: uppercase; color: var(--au); margin-bottom: 5px; }
+.info-panel-value { font-size: 13px; font-weight: 200; color: var(--t1); letter-spacing: .04em; }
+.info-panel-sub { font-size: 9px; color: var(--t2); margin-top: 2px; }
+
+/* Object tooltip */
+#obj-tooltip {
+  position: fixed; z-index: 8000;
+  background: rgba(5,5,4,.88); backdrop-filter: blur(20px);
+  border: 1px solid rgba(196,164,108,.3);
+  padding: 9px 15px;
+  font: 400 9px/1 'Space Mono',monospace; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--au); white-space: nowrap;
+  pointer-events: none; opacity: 0;
+  transition: opacity .25s, transform .25s var(--ease);
+  transform: translateY(4px);
+}
+[data-theme="light"] #obj-tooltip { background: rgba(241,237,229,.92); }
+#obj-tooltip.show { opacity: 1; transform: translateY(0); }
+
+/* Transition overlay for scroll-out */
+#scroll-veil {
+  position: fixed; inset: 0; z-index: 400; pointer-events: none;
+  background: var(--bg); opacity: 0; transition: opacity .55s var(--ease);
+}
+
+/* ═══════════ BELOW HERO ═══════════ */
+.site-body { position: relative; z-index: 10; background: var(--bg); transition: background .6s; }
+
+/* Philosophy section */
+.section-philosophy {
+  padding: 130px 80px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: start;
+  max-width: 1300px; margin: 0 auto;
+}
+.section-label {
+  font: 400 8px/1 'Space Mono',monospace; letter-spacing: .5em; text-transform: uppercase;
+  color: var(--au); display: flex; align-items: center; gap: 14px; margin-bottom: 28px;
+}
+.section-label::before { content: ''; width: 36px; height: 1px; background: var(--au); display: block; }
+.philosophy-heading {
+  font: 200 clamp(40px,4.2vw,60px)/1.16 'Cormorant Garamond',serif;
+  color: var(--t1);
+}
+.philosophy-heading em { font-style: italic; color: var(--au); }
+
+.stats-row { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 52px; border: 1px solid var(--brd); }
+.stat-item { padding: 32px 24px; border-right: 1px solid var(--brd); transition: background .3s; }
+.stat-item:last-child { border-right: none; }
+.stat-item:hover { background: var(--auls); }
+.stat-num { font: 200 52px/1 'Cormorant Garamond',serif; color: var(--au); display: block; }
+.stat-label { font-size: 8px; letter-spacing: .42em; text-transform: uppercase; color: var(--t2); display: block; margin-top: 8px; }
+
+.philosophy-body { display: flex; flex-direction: column; gap: 20px; padding-top: 16px; }
+.philosophy-body p { font-size: 13px; line-height: 1.96; color: var(--t2); }
+
+/* Services */
+.section-services { border-top: 1px solid var(--brd); padding-bottom: 120px; max-width: 1300px; margin: 0 auto; padding-inline: 80px; }
+.services-header { padding: 78px 0 54px; display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 1px solid var(--brd); }
+.services-title { font: 200 clamp(36px,4vw,52px)/1 'Cormorant Garamond',serif; color: var(--t1); }
+.services-link { font-size: 9px; letter-spacing: .42em; text-transform: uppercase; color: var(--au); text-decoration: none; cursor: none; display: flex; align-items: center; gap: 12px; transition: gap .35s var(--ease); }
+.services-link:hover { gap: 22px; }
+.services-grid { display: grid; grid-template-columns: repeat(3,1fr); }
+.service-card { padding: 46px 34px; border-right: 1px solid var(--brd); border-bottom: 1px solid var(--brd); position: relative; overflow: hidden; cursor: none; }
+.service-card:nth-child(3n) { border-right: none; }
+.service-card::before { content: ''; position: absolute; inset: 0; background: var(--auls); transform: scaleY(0); transform-origin: bottom; transition: transform .65s var(--ease); }
+.service-card:hover::before { transform: scaleY(1); }
+.service-card > * { position: relative; z-index: 1; }
+.service-num { font: 400 9px/1 'Space Mono',monospace; color: var(--au); letter-spacing: .3em; display: block; margin-bottom: 24px; }
+.service-name { font: 200 27px/1.2 'Cormorant Garamond',serif; color: var(--t1); margin-bottom: 13px; }
+.service-desc { font-size: 12px; line-height: 1.88; color: var(--t2); }
+
+.site-footer { border-top: 1px solid var(--brd); padding: 28px 80px; display: flex; align-items: center; justify-content: space-between; }
+.footer-copy { font: 400 8px/1 'Space Mono',monospace; letter-spacing: .22em; color: var(--t3); }
+.footer-links { display: flex; gap: 28px; }
+.footer-links a { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: var(--t2); text-decoration: none; cursor: none; transition: color .3s; }
+.footer-links a:hover { color: var(--au); }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="c-dot" id="cDot"></div>
+<div class="c-ring" id="cRing"></div>
+<div id="obj-tooltip"></div>
+<div id="scroll-veil"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="logo"><div class="logo-mark"><span>RX</span></div><span class="logo-name">Renovation.</span></a>
+  <ul class="nav-links"><li><a href="#">მთავარი</a></li><li><a href="#">სერვისები</a></li><li><a href="#">პროექტები</a></li><li><a href="#">კომპანია</a></li><li><a href="#">კონტაქტი</a></li></ul>
+  <div class="nav-right">
+    <div class="theme-toggle" id="themeToggle"></div>
+    <a href="#" class="nav-cta">პროექტი →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-wrap" id="heroWrap">
+  <canvas id="rx-canvas"></canvas>
+  <div class="hero-vignette" id="heroVignette"></div>
+  <div class="hero-grid"></div>
+
+  <!-- Corners -->
+  <div class="corner corner-tl"><svg width="26" height="26" fill="none"><path d="M26 1H1V26" stroke="rgba(196,164,108,.45)" stroke-width="1"/></svg></div>
+  <div class="corner corner-tr"><svg width="26" height="26" fill="none"><path d="M0 1H25V26" stroke="rgba(196,164,108,.45)" stroke-width="1"/></svg></div>
+  <div class="corner corner-bl"><svg width="26" height="26" fill="none"><path d="M1 0V25H26" stroke="rgba(196,164,108,.45)" stroke-width="1"/></svg></div>
+  <div class="corner corner-br"><svg width="26" height="26" fill="none"><path d="M25 0V25H0" stroke="rgba(196,164,108,.45)" stroke-width="1"/></svg></div>
+
+  <div class="side-label side-label-l">Interior Architecture — Tbilisi Studio</div>
+  <div class="side-label side-label-r">Precision · Craft · Transcendence</div>
+
+  <!-- Text -->
+  <div class="hero-content" id="heroContent">
+    <div class="hero-eyebrow">Architectural Interior</div>
+    <span class="hero-title-rx">RX</span>
+    <span class="hero-title-sub">Renovation</span>
+    <div class="hero-divider"></div>
+    <div class="hero-tagline">Tbilisi · Georgia · Est. 2024</div>
+  </div>
+
+  <div class="scroll-hint" id="scrollHint">
+    <span class="scroll-hint-text">Scroll to Explore</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+  <div class="rotate-badge"><div class="rotate-badge-ring"></div><span>360°</span></div>
+
+  <!-- Info panels -->
+  <div class="info-panel" id="ip1" style="top:19%;left:4.5%">
+    <div class="info-panel-label">Floor Area</div>
+    <div class="info-panel-value">380 m²</div>
+    <div class="info-panel-sub">Open plan living</div>
+  </div>
+  <div class="info-panel" id="ip2" style="top:25%;right:5%">
+    <div class="info-panel-label">Ceiling Height</div>
+    <div class="info-panel-value">3.6 m</div>
+    <div class="info-panel-sub">Double volume</div>
+  </div>
+  <div class="info-panel" id="ip3" style="bottom:24%;left:5%">
+    <div class="info-panel-label">Stone</div>
+    <div class="info-panel-value">Travertine</div>
+    <div class="info-panel-sub">Roman Classico</div>
+  </div>
+  <div class="info-panel" id="ip4" style="bottom:24%;right:5%">
+    <div class="info-panel-label">Wood</div>
+    <div class="info-panel-value">White Oak</div>
+    <div class="info-panel-sub">Brushed &amp; oiled</div>
+  </div>
+</div>
+
+<!-- SITE BODY -->
+<div class="site-body">
+  <div class="section-philosophy">
+    <div>
+      <div class="section-label">Our Philosophy</div>
+      <h2 class="philosophy-heading">Space is the<br>canvas. We craft<br>the <em>masterpiece.</em></h2>
+      <div class="stats-row">
+        <div class="stat-item"><span class="stat-num" data-target="247">0</span><span class="stat-label">Projects</span></div>
+        <div class="stat-item"><span class="stat-num" data-target="12">0</span><span class="stat-label">Years</span></div>
+        <div class="stat-item"><span class="stat-num" data-target="98">0</span><span class="stat-label">% Clients</span></div>
+      </div>
+    </div>
+    <div class="philosophy-body">
+      <p>RX Renovation — სივრცის ხელოვნება. ყოველი პროექტი იგება ზუსტ არქიტექტურულ ლოგიკაზე, სადაც ფორმა და ფუნქცია ერთ სიმბიოზში ხვდება.</p>
+      <p>ჩვენი სტუდია ევროპის წამყვანი ბიუროების სტანდარტებით — Travertine, White Oak, Brushed Brass — მხოლოდ მარადიული მასალები.</p>
+      <p>3D ვიზუალიზაციიდან სრულ ტექნიკურ ზედამხედველობამდე — ერთი გუნდი, ერთი ხედვა, კომპრომისების გარეშე.</p>
+    </div>
+  </div>
+  <div class="section-services">
+    <div class="services-header">
+      <h2 class="services-title">What We Create</h2>
+      <a href="#" class="services-link">ყველა სერვისი →</a>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><span class="service-num">01</span><h3 class="service-name">Interior<br>Architecture</h3><p class="service-desc">სივრცის კონცეფციიდან განაწილებამდე.</p></div>
+      <div class="service-card"><span class="service-num">02</span><h3 class="service-name">Material<br>Curation</h3><p class="service-desc">იტალიური ქვა, სკანდინავიური ხე, სპილენძი.</p></div>
+      <div class="service-card"><span class="service-num">03</span><h3 class="service-name">3D Visualization<br>&amp; Planning</h3><p class="service-desc">ფოტორეალისტური ვიზუალიზაცია.</p></div>
+      <div class="service-card"><span class="service-num">04</span><h3 class="service-name">Lighting<br>Design</h3><p class="service-desc">ატმოსფეროს შექმნა სინათლით.</p></div>
+      <div class="service-card"><span class="service-num">05</span><h3 class="service-name">Custom<br>Millwork</h3><p class="service-desc">ყოველი სანტიმეტრი შეკვეთით.</p></div>
+      <div class="service-card"><span class="service-num">06</span><h3 class="service-name">Project<br>Management</h3><p class="service-desc">სრული კონტროლი — ჩვენი პასუხისმგებლობა.</p></div>
+    </div>
+  </div>
+  <footer class="site-footer">
+    <span class="footer-copy">© 2024 RENOVATIONX. ALL RIGHTS RESERVED.</span>
+    <div class="footer-links"><a href="#">Instagram</a><a href="#">Behance</a><a href="#">LinkedIn</a></div>
+  </footer>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════
+   CURSOR
+═══════════════════════════════════════════════ */
+const cDot = document.getElementById('cDot');
+const cRing = document.getElementById('cRing');
+let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2;
+let ringX = mouseX, ringY = mouseY;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cDot.style.left = mouseX + 'px'; cDot.style.top = mouseY + 'px';
+});
+(function animRing() {
+  ringX += (mouseX - ringX) * .11;
+  ringY += (mouseY - ringY) * .11;
+  cRing.style.left = ringX + 'px'; cRing.style.top = ringY + 'px';
+  requestAnimationFrame(animRing);
+})();
+
+document.querySelectorAll('a, .theme-toggle, .service-card, .stat-item').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('h-nav'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('h-nav'));
+});
+document.addEventListener('mousedown', () => document.body.classList.add('clicking'));
+document.addEventListener('mouseup', () => document.body.classList.remove('clicking'));
+
+/* ═══════════════════════════════════════════════
+   THEME
+═══════════════════════════════════════════════ */
+let isDark = true;
+document.getElementById('themeToggle').addEventListener('click', () => {
+  isDark = !isDark;
+  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  applySceneTheme();
+});
+
+/* ═══════════════════════════════════════════════
+   THREE.JS ENGINE
+═══════════════════════════════════════════════ */
+const canvas = document.getElementById('rx-canvas');
+const renderer = new THREE.WebGLRenderer({
+  canvas, antialias: true, alpha: true,
+  powerPreference: 'high-performance'
+});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.08;
+renderer.physicallyCorrectLights = true;
+renderer.setClearColor(0x000000, 0);
+
+const scene = new THREE.Scene();
+// Warm foggy atmosphere for dark mode depth
+scene.fog = new THREE.FogExp2(0x0c0a06, .048);
+
+const camera = new THREE.PerspectiveCamera(42, innerWidth/innerHeight, .05, 60);
+// Camera positioned outside and slightly above, looking into room
+camera.position.set(0, 3.5, 9.2);
+camera.lookAt(0, 1.3, 0);
+
+window.addEventListener('resize', () => {
+  renderer.setSize(innerWidth, innerHeight);
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+});
+renderer.setSize(innerWidth, innerHeight);
+
+/* ─────── MATERIALS ─────── */
+function mat(col, rough, metal, extra = {}) {
+  return new THREE.MeshStandardMaterial({ color: col, roughness: rough, metalness: metal, ...extra });
+}
+const M = {
+  floor:   mat(0x7c6c52, .09, .04),   // polished travertine
+  floorDk: mat(0x5a4e38, .2, .03),    // grout / darker travertine
+  wall:    mat(0xc8c0b0, .82, .0),    // warm plaster
+  wallDk:  mat(0x1c1a14, .72, .04),   // dark accent wall
+  ceil:    mat(0xe4ddd0, .92, .0),    // ceiling
+  wainsc:  mat(0x2a2620, .74, .03),   // wainscoting
+  brass:   mat(0xb89050, .17, .92),   // brushed brass
+  brassD:  mat(0x8a6c34, .26, .86),
+  mblW:    mat(0xe2dace, .07, .02),   // white marble
+  mblGy:   mat(0xb0a48e, .1, .03),    // grey marble
+  wd1:     mat(0x3c2818, .55, .02),   // dark walnut
+  wd2:     mat(0x6a4c2e, .48, .02),   // mid oak
+  wd3:     mat(0x8e6c44, .44, .02),   // light oak
+  fabDk:   mat(0x222018, .96, .0),    // dark linen
+  fabMd:   mat(0x524e48, .92, .0),    // mid
+  fabLt:   mat(0x968e80, .88, .0),    // light
+  velv:    mat(0x1c2430, .97, .0),    // dark velvet
+  velv2:   mat(0x88745e, .94, .0),    // warm velvet
+  cush:    mat(0xd0c4ab, .9, .0),     // cream cushion
+  glass:   mat(0x98b8c6, .0, .08, { transparent: true, opacity: .16, side: THREE.DoubleSide }),
+  blk:     mat(0x060605, .28, .2),
+  chrome:  mat(0xccd0d2, .04, .98),
+  // Emissive
+  emitWarm:   new THREE.MeshStandardMaterial({ color: 0xffeec0, emissive: 0xffcc58, emissiveIntensity: 2.8, roughness: 1 }),
+  emitFire:   new THREE.MeshStandardMaterial({ color: 0xff6015, emissive: 0xff3e08, emissiveIntensity: 5, roughness: 1 }),
+  emitLed:    new THREE.MeshStandardMaterial({ color: 0xfff0b8, emissive: 0xffe090, emissiveIntensity: 2.0, roughness: 1 }),
+  emitSky:    new THREE.MeshStandardMaterial({ color: 0xfff8e8, emissive: 0xfff0c8, emissiveIntensity: 1.6, roughness: 1, transparent: true, opacity: .22, side: THREE.DoubleSide }),
+};
+
+/* ─────── PIVOT GROUP ─────── */
+// All room geometry goes in pivot — camera stays fixed
+// pivot.rotation.y drives the scroll rotation
+// KEY: we use a limited rotation range so camera never looks at exterior back wall
+const pivot = new THREE.Group();
+scene.add(pivot);
+
+/* ─────── HELPERS ─────── */
+function box(w, h, d, m, x=0, y=0, z=0, ry=0) {
+  const mesh = new THREE.Mesh(new THREE.BoxGeometry(w,h,d), m);
+  mesh.position.set(x,y,z); mesh.rotation.y = ry;
+  mesh.castShadow = true; mesh.receiveShadow = true;
+  pivot.add(mesh); return mesh;
+}
+function cyl(rT, rB, h, s, m, x=0, y=0, z=0) {
+  const mesh = new THREE.Mesh(new THREE.CylinderGeometry(rT,rB,h,s), m);
+  mesh.position.set(x,y,z);
+  mesh.castShadow = true; mesh.receiveShadow = true;
+  pivot.add(mesh); return mesh;
+}
+function sph(r, s, m, x=0, y=0, z=0) {
+  const mesh = new THREE.Mesh(new THREE.SphereGeometry(r,s,s), m);
+  mesh.position.set(x,y,z); mesh.castShadow = true;
+  pivot.add(mesh); return mesh;
+}
+function grp() { const g = new THREE.Group(); pivot.add(g); return g; }
+function addTo(g, mesh) { mesh.castShadow = true; mesh.receiveShadow = true; g.add(mesh); return mesh; }
+
+/* ═══════════════════════════════════════════════
+   ROOM CONSTRUCTION (open-box — no front wall)
+   Room: 11 wide × 4.8 tall × 8 deep
+   Camera faces -Z direction (front is open)
+═══════════════════════════════════════════════ */
+
+// FLOOR — Travertine slabs
+box(11, .07, 8, M.floor, 0, -.035, 0);
+// Slab joints — brass inlay
+for (let i = -5; i <= 5; i++) {
+  box(11, .072, .018, M.brassD, 0, .002, i * .9);
+  box(.018, .072, 8, M.brassD, i * .95, .002, 0);
+}
+
+// BACK WALL (z = -4)
+box(11, 4.8, .07, M.wall, 0, 2.38, -4);
+// Wainscoting on back wall
+box(11, .9, .09, M.wainsc, 0, .45, -3.94);
+
+// LEFT WALL (x = -5.5)
+box(.07, 4.8, 8, M.wall, -5.5, 2.38, 0);
+box(.09, .9, 8, M.wainsc, -5.44, .45, 0);
+
+// RIGHT WALL — dark accent (x = 5.5)
+box(.07, 4.8, 8, M.wallDk, 5.5, 2.38, 0);
+box(.09, .9, 8, M.wallDk, 5.44, .45, 0);
+
+// NO FRONT WALL — camera looks through opening
+
+// CEILING — coffers
+box(11, .09, 8, M.ceil, 0, 4.77, 0);
+for (let ci = -1; ci <= 1; ci++) {
+  for (let cj = -1; cj <= 1; cj++) {
+    // Coffer panel
+    box(2.85, .065, 2.2, M.ceil, ci*3.05, 4.73, cj*2.25);
+    // Brass frame rails
+    [-1.12, 1.12].forEach(oz => box(2.95, .025, .04, M.brass, ci*3.05, 4.75, cj*2.25+oz));
+    [-1.38, 1.38].forEach(ox => box(.04, .025, 2.24, M.brass, ci*3.05+ox, 4.75, cj*2.25));
+    // LED strip (emissive)
+    box(2.8, .015, 2.15, M.emitLed, ci*3.05, 4.706, cj*2.25);
+  }
+}
+
+// Crown molding + baseboard
+box(11, .2, .07, M.ceil, 0, 4.62, -3.93);
+box(.07, .2, 8, M.ceil, -5.43, 4.62, 0);
+box(.07, .2, 8, M.ceil, 5.43, 4.62, 0);
+box(11, .1, .04, M.brass, 0, .05, -3.96);
+box(.04, .1, 8, M.brass, -5.46, .05, 0);
+box(.04, .1, 8, M.brass, 5.46, .05, 0);
+
+/* ═══════════════════════════════════════════════
+   WINDOWS — BACK WALL
+═══════════════════════════════════════════════ */
+const winGlowMeshes = [], winSpotLights = [];
+[-2.65, 1.25].forEach(wx => {
+  // Outer brass frame
+  box(1.72, 3.48, .13, M.brass, wx, 2.18, -3.91);
+  // Glass
+  box(1.6, 3.36, .05, M.glass, wx, 2.18, -3.935);
+  // Glazing bars
+  box(1.72, .028, .14, M.brass, wx, 1.44, -3.91);
+  box(1.72, .028, .14, M.brass, wx, 2.98, -3.91);
+  box(.028, 3.48, .14, M.brass, wx, 2.18, -3.91);
+  // Marble reveals
+  box(.13, 3.48, .07, M.mblW, wx-.875, 2.18, -3.66);
+  box(.13, 3.48, .07, M.mblW, wx+.875, 2.18, -3.66);
+  // Marble sill
+  box(1.86, .075, .35, M.mblW, wx, .54, -3.68);
+  // Sky emissive plane (looks like daylight)
+  const skyMesh = new THREE.Mesh(new THREE.PlaneGeometry(1.58, 3.34), M.emitSky.clone());
+  skyMesh.position.set(wx, 2.18, -3.97); skyMesh.rotation.y = 0;
+  pivot.add(skyMesh); winGlowMeshes.push(skyMesh);
+  // Spot light through window
+  const wsp = new THREE.SpotLight(0xcce8ff, 1.5, 15, Math.PI*.25, .55);
+  wsp.position.set(wx, 4.7, -3.4); wsp.target.position.set(wx*.3, 0, .5);
+  wsp.castShadow = true; wsp.shadow.bias = -.001;
+  scene.add(wsp); scene.add(wsp.target); winSpotLights.push(wsp);
+});
+
+/* ═══════════════════════════════════════════════
+   FIREPLACE (back right)
+═══════════════════════════════════════════════ */
+const FX = 3.65, FZ = -3.86;
+// Marble surround
+box(2.12, 2.82, .19, M.mblGy, FX, 1.4, FZ);
+// Opening (black box)
+box(1.5, 1.68, .26, M.blk, FX, 1.08, FZ-.01);
+// Hearth
+box(.88, .055, .24, M.brassD, FX, .165, FZ+.02);
+// Fire embers
+const fireMesh = box(.84, .19, .21, M.emitFire, FX, .27, FZ-.01);
+// Outer brass trim
+box(2.2, 2.9, .045, M.brass, FX, 1.38, FZ+.09);
+box(1.58, 1.76, .048, M.blk, FX, 1.06, FZ+.1);
+// Mantel shelf
+box(2.42, .09, .44, M.mblGy, FX, 2.83, FZ+.1);
+// Vent
+box(1.54, .052, .048, M.brassD, FX, 1.99, FZ+.1);
+// Mantel objects
+sph(.084, 16, M.brass, FX-.72, 2.96, FZ+.17);
+sph(.062, 16, M.mblW, FX+.62, 2.92, FZ+.17);
+cyl(.042, .042, .31, 8, M.brass, FX+.2, 2.98, FZ+.17);
+const fireLight = new THREE.PointLight(0xff5808, 2.6, 5.5);
+fireLight.position.set(FX, 1.25, FZ+.6); scene.add(fireLight);
+
+/* ═══════════════════════════════════════════════
+   INTERACTIVE OBJECTS — raycasting targets
+═══════════════════════════════════════════════ */
+const interactiveObjects = [];
+function makeInteractive(mesh, label) {
+  mesh.userData = { interactive: true, label };
+  interactiveObjects.push(mesh);
+  return mesh;
+}
+
+/* ═══════════════════════════════════════════════
+   SOFA (modular sectional)
+═══════════════════════════════════════════════ */
+function buildSofa(x, z, w, d, ry = 0, fabric = M.velv) {
+  const g = new THREE.Group();
+  const mk = (geo, m) => { const me = new THREE.Mesh(geo, m); me.castShadow = true; me.receiveShadow = true; g.add(me); return me; };
+  // Platform
+  mk(new THREE.BoxGeometry(w, .16, d), M.wd1).position.y = .08;
+  // Seat
+  const seat = mk(new THREE.BoxGeometry(w-.04, .24, d*.88), fabric); seat.position.set(0,.29,-.02);
+  // Back
+  const back = mk(new THREE.BoxGeometry(w, .84, .23), fabric); back.position.set(0,.69,d*.47-.02);
+  // Back cap
+  mk(new THREE.BoxGeometry(w+.02,.042,.3), M.wd1).position.set(0,1.11,d*.48+.06);
+  // Arms
+  [-w/2-.045, w/2+.045].forEach(ax => {
+    mk(new THREE.BoxGeometry(.1,.54,d), fabric).position.set(ax,.41,0);
+    mk(new THREE.BoxGeometry(.15,.042,d+.08), M.wd1).position.set(ax,.68,0);
+  });
+  // Cushions
+  const nc = Math.max(1, Math.round(w/.88));
+  for (let i = 0; i < nc; i++) {
+    const cx = -w/2 + w/(2*nc) + i*(w/nc);
+    mk(new THREE.BoxGeometry(w/nc-.05,.18,d*.83), M.cush).position.set(cx,.32,-.04);
+    mk(new THREE.BoxGeometry(w/nc-.08,.58,.18), M.fabLt).position.set(cx,.66,d*.37);
+  }
+  // Legs
+  [[-(w/2-.13),d/2-.13],[w/2-.13,d/2-.13],[-(w/2-.13),-(d/2-.13)],[w/2-.13,-(d/2-.13)]].forEach(([lx,lz]) => {
+    mk(new THREE.CylinderGeometry(.018,.015,.08,8), M.brass).position.set(lx,.04,lz);
+  });
+  g.position.set(x,0,z); g.rotation.y = ry;
+  pivot.add(g);
+  makeInteractive(seat, 'Velvet Sectional · Custom');
+  return g;
+}
+buildSofa(-.5, .9, 3.7, 1.08);
+buildSofa(1.88, .25, 1.22, 1.68);
+buildSofa(-3.85, -.22, 1.02, 1.02, Math.PI*.24, M.fabMd);
+buildSofa(3.45, .62, 1.02, 1.02, -Math.PI*.2, M.fabMd);
+
+/* ═══════════════════════════════════════════════
+   COFFEE TABLE
+═══════════════════════════════════════════════ */
+{
+  const g = new THREE.Group();
+  const mk = (geo, m) => { const me = new THREE.Mesh(geo, m); me.castShadow = true; me.receiveShadow = true; g.add(me); return me; };
+  const top = mk(new THREE.BoxGeometry(2.02,.066,1.04), M.mblW); top.position.y = .5;
+  makeInteractive(top, 'Calacatta Marble Table');
+  // Brass edge
+  [[0,.5,.53],[0,.5,-.53]].forEach(([x,y,z]) => { const t = mk(new THREE.BoxGeometry(2.06,.07,.042),M.brass); t.position.set(x,y,z); });
+  [[1.02,.5,0],[-.02,.5,0]].forEach(([x,y,z]) => { const t = mk(new THREE.BoxGeometry(.042,.07,1.06),M.brass); t.position.set(x-.5,y,z); });
+  // Cross base
+  mk(new THREE.BoxGeometry(1.88,.042,.13), M.brassD).position.set(0,.28,0);
+  mk(new THREE.BoxGeometry(.13,.042,.86), M.brassD).position.set(0,.28,0);
+  // Angled legs
+  [[.88,.38],[-.88,.38],[.88,-.38],[-.88,-.38]].forEach(([lx,lz]) => {
+    const l = mk(new THREE.BoxGeometry(.054,.49,.054), M.brass); l.position.set(lx,.245,lz); l.rotation.z = lx>.5?.062:-.062;
+  });
+  // Lower shelf
+  mk(new THREE.BoxGeometry(1.56,.024,.74), M.wd3).position.set(0,.14,0);
+  // Objects
+  mk(new THREE.CylinderGeometry(.055,.09,.33,16), M.mblGy).position.set(-.62,.57,.08);
+  mk(new THREE.CylinderGeometry(.072,.055,.042,16), M.mblGy).position.set(-.62,.74,.08);
+  const cnd = mk(new THREE.CylinderGeometry(.034,.034,.21,12), M.cush); cnd.position.set(.42,.58,-.09);
+  const flm = mk(new THREE.SphereGeometry(.024,8,8), M.emitWarm); flm.position.set(.42,.7,-.09);
+  g.position.set(-.5,0,-.24); pivot.add(g);
+}
+
+/* ═══════════════════════════════════════════════
+   DINING TABLE + CHAIRS
+═══════════════════════════════════════════════ */
+{
+  const DX = 2.42, DZ = -2.05;
+  const dt = box(2.88, .059, 1.24, M.wd1, DX, .845, DZ);
+  makeInteractive(dt, 'Walnut Dining · 6 Seat');
+  box(2.92, .063, .046, M.brass, DX, .845, DZ-.648);
+  box(2.92, .063, .046, M.brass, DX, .845, DZ+.648);
+  // Pedestal
+  box(.082, .845, .082, M.brass, DX, .422, DZ);
+  box(2.24, .043, .105, M.brassD, DX, .042, DZ);
+  box(.105, .043, 1.06, M.brassD, DX, .042, DZ);
+  // Chairs
+  function diningChair(x, z, ry) {
+    const g = new THREE.Group();
+    const mk = (geo, m) => { const me = new THREE.Mesh(geo, m); me.castShadow = true; me.receiveShadow = true; g.add(me); return me; };
+    mk(new THREE.BoxGeometry(.54,.045,.52), M.wd3).position.y = .48;
+    mk(new THREE.BoxGeometry(.5,.066,.48), M.velv2).position.set(0,.524,0);
+    mk(new THREE.BoxGeometry(.54,.62,.046), M.wd3).position.set(0,.81,.24);
+    mk(new THREE.BoxGeometry(.48,.56,.056), M.velv2).position.set(0,.81,.25);
+    [[-.2,-.2],[.2,-.2],[-.2,.2],[.2,.2]].forEach(([lx,lz]) => mk(new THREE.CylinderGeometry(.017,.013,.48,8), M.wd1).position.set(lx,.24,lz));
+    g.position.set(x,0,z); g.rotation.y = ry;
+    pivot.add(g);
+  }
+  [[-1.1,DZ-.77,0],[0,DZ-.77,0],[1.1,DZ-.77,0]].forEach(([x,z,r]) => diningChair(DX+x,z,r));
+  [[-1.1,DZ+.77,Math.PI],[0,DZ+.77,Math.PI],[1.1,DZ+.77,Math.PI]].forEach(([x,z,r]) => diningChair(DX+x,z,r));
+}
+
+/* ═══════════════════════════════════════════════
+   BOOKSHELF UNIT
+═══════════════════════════════════════════════ */
+{
+  const SX=-5.08, SW=4.1, SH=3.65;
+  box(SW, SH, .072, M.wd1, SX+SW/2, SH/2, -1.45);
+  for (let s=0; s<6; s++) {
+    const sh = box(SW, .044, .42, M.wd3, SX+SW/2, .42+s*.58, -1.45);
+    if (s===0) makeInteractive(sh, 'Walnut Shelving Unit');
+    if (s<5) [-.84, .84].forEach(dx => box(.044, .58, .42, M.wd1, SX+SW/2+dx, .71+s*.58, -1.45));
+  }
+  const bkCols = [0x2a1a10,0x1a2830,0x281e0e,0x181818,0x2a1616,0x0e2020,0x201808,0x181428,0x2a2018,0x16280a];
+  for (let b=0; b<30; b++) {
+    const bw=.066+Math.random()*.076, bh=.28+Math.random()*.22;
+    const bm = new THREE.MeshStandardMaterial({ color: bkCols[b%bkCols.length], roughness: .9 });
+    const bk = new THREE.Mesh(new THREE.BoxGeometry(bw, bh, .38), bm);
+    const row = Math.floor(b/10), col = b%10;
+    bk.position.set(SX+.12+col*.38, (.42+row*.58)+bh/2+.044, -1.26);
+    bk.rotation.y = (Math.random()-.5)*.05;
+    bk.castShadow = true; pivot.add(bk);
+  }
+  sph(.086, 16, M.mblW, SX+SW/2-.52, 3.32, -1.26);
+  cyl(.064, .045, .23, 12, M.brass, SX+SW/2+.82, 3.3, -1.26);
+}
+
+/* ═══════════════════════════════════════════════
+   FLOOR LAMPS
+═══════════════════════════════════════════════ */
+const lampPointLights = [];
+function buildLamp(x, z) {
+  const g = new THREE.Group();
+  const mk = (geo, m) => { const me = new THREE.Mesh(geo, m); me.castShadow = true; me.receiveShadow = true; g.add(me); return me; };
+  const base = mk(new THREE.BoxGeometry(.35,.066,.35), M.brassD); base.position.y = .033;
+  makeInteractive(base, 'Brass Arc Lamp');
+  mk(new THREE.CylinderGeometry(.018,.022,1.92,8), M.brass).position.set(0,.99,0);
+  mk(new THREE.CylinderGeometry(.066,.28,.35,24,1,true), M.brassD).position.set(.22,1.95,0);
+  mk(new THREE.CylinderGeometry(.29,.28,.034,24), M.brass).position.set(.22,1.775,0);
+  mk(new THREE.CylinderGeometry(.072,.05,.068,16), M.brass).position.set(.22,2.11,0);
+  mk(new THREE.SphereGeometry(.046,10,10), M.emitWarm).position.set(.22,1.9,0);
+  const pl = new THREE.PointLight(0xfff0b0, .92, 4.0); pl.position.set(.22,1.86,0); g.add(pl);
+  lampPointLights.push(pl);
+  g.position.set(x,0,z); pivot.add(g);
+}
+buildLamp(-4.68, -3.3);
+buildLamp(1.12, -3.3);
+
+/* ═══════════════════════════════════════════════
+   PENDANT LIGHTS
+═══════════════════════════════════════════════ */
+const pendPointLights = [];
+function buildPendant(x, yBottom, z) {
+  const g = new THREE.Group();
+  const mk = (geo, m) => { const me = new THREE.Mesh(geo, m); me.castShadow = true; me.receiveShadow = true; g.add(me); return me; };
+  const cL = 4.77-yBottom;
+  const cord = mk(new THREE.CylinderGeometry(.007,.007,cL,4), M.blk); cord.position.set(0,yBottom+cL/2,0);
+  mk(new THREE.CylinderGeometry(.033,.245,.33,24,1,true), M.brassD).position.set(0,yBottom,0);
+  mk(new THREE.CylinderGeometry(.26,.245,.035,24), M.brass).position.set(0,yBottom-.148,0);
+  mk(new THREE.CylinderGeometry(.066,.044,.072,16), M.brass).position.set(0,yBottom+.175,0);
+  mk(new THREE.SphereGeometry(.044,10,10), M.emitWarm).position.set(0,yBottom-.062,0);
+  const pl = new THREE.PointLight(0xffe8a0, 1.2, 4.8); pl.position.set(0,yBottom-.1,0); g.add(pl);
+  pendPointLights.push(pl);
+  g.position.set(x,0,z); pivot.add(g);
+}
+buildPendant(-2.8, 2.38, -1.7);
+buildPendant(1.3, 2.38, -1.7);
+buildPendant(2.46, 2.78, -1.85);
+buildPendant(-.3, 2.98, -.38);
+
+/* ═══════════════════════════════════════════════
+   AREA RUG
+═══════════════════════════════════════════════ */
+box(4.72, .015, 3.08, mat(0x2e2620,.97,.0), -.35, .007, .65);
+box(4.32, .017, 2.68, mat(0x38302a,.97,.0), -.35, .008, .65);
+cyl(.94, .94, .019, 32, mat(0x4a3e2c,.94,.0), -.35, .019, .65);
+cyl(.64, .64, .021, 32, mat(0x5a5040,.92,.0), -.35, .02, .65);
+
+/* ═══════════════════════════════════════════════
+   ARTWORK
+═══════════════════════════════════════════════ */
+const artFrame = box(.046, 1.68, 1.14, M.brassD, -.9, 3.44, -3.89);
+makeInteractive(artFrame, 'Abstract Canvas · Limited Ed.');
+box(.05, 1.62, 1.08, mat(0x1a1510,.94,.0), -.9, 3.44, -3.87);
+box(.054, 1.56, 1.02, mat(0x28201a,.9,.0), -.9, 3.44, -3.85);
+// Small wall pieces
+[[-2.22,2.84],[-3.3,2.48]].forEach(([fz,fy]) => {
+  box(.046,.8,.66, M.brassD, -5.43, fy, fz);
+  box(.05,.76,.62, mat(0x181410,.94,.0), -5.42, fy, fz);
+});
+
+/* ═══════════════════════════════════════════════
+   SIDE TABLE + VASE
+═══════════════════════════════════════════════ */
+{
+  const g = new THREE.Group();
+  const mk = (geo,m) => { const me=new THREE.Mesh(geo,m); me.castShadow=true; me.receiveShadow=true; g.add(me); return me; };
+  mk(new THREE.CylinderGeometry(.3,.26,.52,16), M.mblW).position.y = .26;
+  mk(new THREE.CylinderGeometry(.36,.36,.046,32), M.brass).position.y = .543;
+  const vase = mk(new THREE.CylinderGeometry(.08,.12,.43,16), M.mblGy); vase.position.set(0,.76,0);
+  makeInteractive(vase, 'Nero Marquina Vase');
+  mk(new THREE.CylinderGeometry(.075,.08,.042,16), M.mblGy).position.set(0,.98,0);
+  g.position.set(-3.75, 0, .6); pivot.add(g);
+}
+
+/* ═══════════════════════════════════════════════
+   SCENE LIGHTING
+═══════════════════════════════════════════════ */
+// Ambient — warm and low in dark mode
+const ambLight = new THREE.AmbientLight(0xfff4e0, .11);
+scene.add(ambLight);
+
+// Main directional (sun-like, through windows)
+const sunLight = new THREE.DirectionalLight(0xfff0c8, .82);
+sunLight.position.set(-3, 8.5, 4.5);
+sunLight.castShadow = true;
+sunLight.shadow.mapSize.set(2048, 2048);
+sunLight.shadow.camera.near = .1; sunLight.shadow.camera.far = 25;
+sunLight.shadow.camera.left = -8; sunLight.shadow.camera.right = 8;
+sunLight.shadow.camera.top = 8; sunLight.shadow.camera.bottom = -8;
+sunLight.shadow.bias = -.0008; sunLight.shadow.normalBias = .025;
+scene.add(sunLight);
+
+// Cool fill from right
+const fillLight = new THREE.DirectionalLight(0xd0e4f4, .22);
+fillLight.position.set(5, 4, -1); scene.add(fillLight);
+
+// Warm bounce fill
+const bounceLight = new THREE.PointLight(0xffedd0, .18, 12);
+bounceLight.position.set(-1, 1.5, 2); scene.add(bounceLight);
+
+// LIGHT MODE — extra ceiling/wall lights (off by default)
+const lightModeExtras = [];
+[[0, 4.5, 0], [-2.5, 4.2, -1.5], [2.5, 4.2, -1.5], [-4, 3.8, .5], [4, 3.8, .5]].forEach(([x,y,z]) => {
+  const sl = new THREE.SpotLight(0xfff8e8, 0, 9, Math.PI*.28, .55);
+  sl.position.set(x,y,z); sl.target.position.set(x*.25, 0, z*.25);
+  sl.castShadow = false; scene.add(sl); scene.add(sl.target);
+  lightModeExtras.push(sl);
+});
+
+// Wall sconce lights (light mode only)
+const sconceLights = [];
+[[-5.3, 2.5, -1.5], [-5.3, 2.5, 1.5], [5.3, 2.5, -1.5], [5.3, 2.5, 1.5]].forEach(([x,y,z]) => {
+  const pl = new THREE.PointLight(0xfff0d0, 0, 4); pl.position.set(x,y,z);
+  scene.add(pl); sconceLights.push(pl);
+});
+
+function applySceneTheme() {
+  const isLight = !isDark;
+  // Fog
+  scene.fog.color.set(isLight ? 0xf1ede5 : 0x0c0a06);
+  scene.fog.density = isLight ? .035 : .048;
+  // Ambient
+  ambLight.intensity = isLight ? .38 : .11;
+  ambLight.color.set(isLight ? 0xfffff0 : 0xfff4e0);
+  // Sun
+  sunLight.intensity = isLight ? 1.35 : .82;
+  sunLight.color.set(isLight ? 0xfffff8 : 0xfff0c8);
+  // Fill
+  fillLight.intensity = isLight ? .38 : .22;
+  // Exposure
+  renderer.toneMappingExposure = isLight ? 1.35 : 1.08;
+  // Wall/ceiling colors
+  M.wall.color.setHex(isLight ? 0xede6d8 : 0xc8c0b0);
+  M.ceil.color.setHex(isLight ? 0xf8f4ec : 0xe4ddd0);
+  M.floor.color.setHex(isLight ? 0x9a8a6e : 0x7c6c52);
+  // Light mode extras
+  lightModeExtras.forEach((sl, i) => { sl.intensity = isLight ? 1.8 - i*.15 : 0; });
+  sconceLights.forEach(pl => { pl.intensity = isLight ? 1.0 : 0; });
+  // Window spots
+  winSpotLights.forEach(sp => { sp.intensity = isLight ? 2.0 : 1.5; sp.color.set(isLight ? 0xe8f4ff : 0xcce8ff); });
+  winGlowMeshes.forEach(m => { m.material.opacity = isLight ? .35 : .22; m.material.emissiveIntensity = isLight ? 2.4 : 1.6; });
+  // Pendants / lamps — brighter in light mode
+  pendPointLights.forEach(p => { p.intensity = isLight ? 1.6 : 1.2; });
+  lampPointLights.forEach(l => { l.intensity = isLight ? 1.3 : .92; });
+  // LED strips
+  M.emitLed.emissiveIntensity = isLight ? 3.8 : 2.0;
+  // Fire dims slightly in light mode
+  fireLight.intensity = isLight ? 1.6 : 2.6;
+}
+
+/* ═══════════════════════════════════════════════
+   RAYCASTING — INTERACTIVE OBJECTS
+═══════════════════════════════════════════════ */
+const raycaster = new THREE.Raycaster();
+const mouse2 = new THREE.Vector2(-10, -10);
+const tooltip = document.getElementById('obj-tooltip');
+let hoveredMesh = null;
+
+canvas.addEventListener('mousemove', e => {
+  mouse2.x = (e.clientX / innerWidth) * 2 - 1;
+  mouse2.y = -(e.clientY / innerHeight) * 2 + 1;
+});
+
+canvas.addEventListener('click', () => {
+  if (!hoveredMesh) return;
+  // Click pulse effect
+  const origEm = hoveredMesh.material.emissive ? hoveredMesh.material.emissive.clone() : null;
+  const origEI = hoveredMesh.material.emissiveIntensity || 0;
+  if (hoveredMesh.material.emissive) {
+    hoveredMesh.material.emissive.set(0xc4a46c);
+    hoveredMesh.material.emissiveIntensity = .8;
+    setTimeout(() => {
+      if (hoveredMesh && hoveredMesh.material.emissive) {
+        hoveredMesh.material.emissive.copy(origEm);
+        hoveredMesh.material.emissiveIntensity = origEI;
+      }
+    }, 380);
+  }
+});
+
+function doRaycast() {
+  if (window.scrollY > window.innerHeight * .06) {
+    tooltip.classList.remove('show');
+    document.body.classList.remove('h-obj');
+    hoveredMesh = null;
+    return;
+  }
+  raycaster.setFromCamera(mouse2, camera);
+  const hits = raycaster.intersectObjects(interactiveObjects, false);
+  if (hits.length > 0) {
+    const obj = hits[0].object;
+    if (obj !== hoveredMesh) {
+      hoveredMesh = obj;
+      tooltip.textContent = obj.userData.label;
+    }
+    tooltip.style.left = (mouseX + 18) + 'px';
+    tooltip.style.top = (mouseY - 16) + 'px';
+    tooltip.classList.add('show');
+    document.body.classList.add('h-obj');
+  } else {
+    hoveredMesh = null;
+    tooltip.classList.remove('show');
+    document.body.classList.remove('h-obj');
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLL + ROTATION
+   
+   KEY DESIGN: Camera is FIXED at (0, 3.5, 9.2)
+   Pivot rotates Y. Room is open at front (no front wall).
+   
+   Rotation is CLAMPED to ±π*0.88 — so camera NEVER
+   goes behind the back wall. Scrolling down rotates
+   RIGHT (positive Y), scrolling up reverses.
+   Max rotation shows left/right walls fully.
+═══════════════════════════════════════════════ */
+const MAX_ROT = Math.PI * .82; // max rotation each way — never shows back exterior
+
+let scrollY = 0, targetScrollY = 0;
+let rotY = 0, targetRotY = 0;
+let mouseRotX = 0, mouseRotY = 0, targetMouseRotX = 0, targetMouseRotY = 0;
+let camTiltX = 0, camTiltY = 0;
+
+window.addEventListener('scroll', () => { targetScrollY = window.scrollY; }, { passive: true });
+document.addEventListener('mousemove', e => {
+  targetMouseRotY = (e.clientX / innerWidth - .5) * .38;
+  targetMouseRotX = (e.clientY / innerHeight - .5) * -.22;
+});
+
+// Scroll UI
+const navEl    = document.getElementById('mainNav');
+const hcEl     = document.getElementById('heroContent');
+const sciEl    = document.getElementById('scrollHint');
+const veilEl   = document.getElementById('scroll-veil');
+
+function updateScrollUI() {
+  const sy = window.scrollY;
+  navEl.classList.toggle('scrolled', sy > 50);
+  const prog = Math.min(sy / window.innerHeight, 1);
+  // Content fade+lift
+  hcEl.style.opacity = Math.max(0, 1 - prog * 2.8) + '';
+  hcEl.style.transform = `translateY(${sy * .36}px)`;
+  sciEl.style.opacity  = Math.max(0, 1 - prog * 5) + '';
+  // Info panels
+  const showP = prog > .05 && prog < .88;
+  ['ip1','ip2','ip3','ip4'].forEach((id,i) => {
+    document.getElementById(id).classList.toggle('show', showP && prog > .07 + i*.044);
+  });
+  // Veil fade — clean transition into body
+  veilEl.style.opacity = prog > .74 ? ((prog-.74)/.26).toFixed(3) : '0';
+}
+
+function lerp(a, b, t) { return a + (b - a) * t; }
+function easeOut3(t) { return 1 - Math.pow(1-t, 3); }
+
+/* ═══════════════════════════════════════════════
+   INTRO CAMERA FLY-IN
+═══════════════════════════════════════════════ */
+let introT = 0, introPhase = true;
+const introStartPos = new THREE.Vector3(0, 7.5, 14);
+const introEndPos   = new THREE.Vector3(0, 3.5, 9.2);
+
+/* ═══════════════════════════════════════════════
+   MAIN RENDER LOOP
+═══════════════════════════════════════════════ */
+const clock = new THREE.Clock();
+let animT = 0;
+
+function frame() {
+  requestAnimationFrame(frame);
+  const dt = Math.min(clock.getDelta(), .05);
+  animT += dt;
+
+  doRaycast();
+  updateScrollUI();
+
+  // ── INTRO ──
+  if (introPhase) {
+    introT += dt * .45;
+    const p = Math.min(introT, 1), ep = easeOut3(p);
+    camera.position.lerpVectors(introStartPos, introEndPos, ep);
+    camera.lookAt(0, 1.3, 0);
+    if (p >= 1) introPhase = false;
+    renderer.render(scene, camera); return;
+  }
+
+  // ── SCROLL → CLAMPED ROTATION ──
+  scrollY = lerp(scrollY, targetScrollY, .062);
+  const prog = Math.min(scrollY / window.innerHeight, 1);
+  // Map scroll 0..1 → rotation -MAX..+MAX
+  // But we oscillate: 0=center, .5=max right, 1=back to center
+  // Better: continuous scroll drives Y smoothly, clamped
+  const rawRot = (prog * 2 - 1) * MAX_ROT * 2; // -MAX*2 to +MAX*2
+  targetRotY = Math.max(-MAX_ROT, Math.min(MAX_ROT, prog * MAX_ROT * 2));
+
+  // Mouse tilt
+  mouseRotY = lerp(mouseRotY, targetMouseRotY, .06);
+  mouseRotX = lerp(mouseRotX, targetMouseRotX, .06);
+
+  rotY = lerp(rotY, targetRotY, .042);
+  pivot.rotation.y = rotY + mouseRotY;
+  pivot.rotation.x = mouseRotX * .2;
+
+  // Camera subtle drift following mouse (organic)
+  camTiltX = lerp(camTiltX, mouseRotX * .4, .04);
+  camTiltY = lerp(camTiltY, mouseRotY * .2, .04);
+  camera.position.set(camTiltY * 1.2, 3.5 + camTiltX * .8, 9.2);
+  camera.lookAt(0, 1.3 + camTiltX * .4, 0);
+
+  // ── FIRE FLICKER (realistic multi-frequency) ──
+  const f = Math.sin(animT*13.6)*Math.sin(animT*8.4)*.82 + Math.sin(animT*22.3)*.12 + .78;
+  fireLight.intensity = 2.6 * Math.max(.2, f);
+  M.emitFire.emissiveIntensity = 5 * (.65 + .45*Math.sin(animT*10.5+.2));
+  fireLight.position.x = FX + Math.sin(animT*17)*.038;
+  fireLight.position.z = FZ + .6 + Math.sin(animT*13)*.028;
+
+  // ── PENDANT PULSE ──
+  pendPointLights.forEach((p,i) => p.intensity = lerp(p.intensity, (isDark?1.2:1.6) + .2*Math.sin(animT*1.7+i*1.9), .1));
+  lampPointLights.forEach((l,i) => l.intensity = lerp(l.intensity, (isDark?.92:1.3) + .09*Math.sin(animT*.9+i), .1));
+
+  // ── LED COVE BREATHING ──
+  M.emitLed.emissiveIntensity = lerp(M.emitLed.emissiveIntensity, (isDark?2.0:3.8) + .25*Math.sin(animT*.4), .04);
+
+  // ── CANDLE/WARM EMISSIVE FLICKER ──
+  M.emitWarm.emissiveIntensity = 2.8 + 1.6*Math.sin(animT*7.8)*Math.sin(animT*5.2) + .3*Math.sin(animT*23);
+
+  // ── WINDOW SKY SHIMMER ──
+  winGlowMeshes.forEach((m,i) => {
+    m.material.opacity = (isDark?.22:.35) + .025*Math.sin(animT*.22+i*.8);
+    m.material.emissiveIntensity = (isDark?1.6:2.4) + .15*Math.sin(animT*.3+i);
+  });
+
+  renderer.render(scene, camera);
+}
+frame();
+
+/* ═══════════════════════════════════════════════
+   STATS COUNTER
+═══════════════════════════════════════════════ */
+function countUp(el, target, dur=1900) {
+  const start = performance.now();
+  const isP = el.closest('.stat-item').querySelector('.stat-label').textContent.includes('%');
+  const go = t => {
+    const p = Math.min((t-start)/dur, 1), e = 1-Math.pow(1-p,3);
+    el.textContent = Math.round(e*target) + (isP?'%':'');
+    if (p<1) requestAnimationFrame(go);
+  };
+  requestAnimationFrame(go);
+}
+new IntersectionObserver(ents => {
+  if (ents[0].isIntersecting) {
+    document.querySelectorAll('[data-target]').forEach((el,i) => setTimeout(()=>countUp(el,+el.dataset.target), i*180));
+  }
+}, { threshold: .4 }).observe(document.querySelector('.stats-row'));
+
+/* ═══════════════════════════════════════════════
+   INFO PANEL REVEAL
+═══════════════════════════════════════════════ */
+setTimeout(() => {
+  ['ip1','ip2','ip3','ip4'].forEach((id,i) => setTimeout(()=>document.getElementById(id).classList.add('show'), i*230));
+}, 3000);
+
+/* Nav interactive cursor */
+document.querySelectorAll('a,.theme-toggle,.service-card,.stat-item').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('h-nav'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('h-nav'));
+});
+</script>
+</body>
+</html>
