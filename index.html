@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="assets/css/global.css">
 	<link rel="stylesheet" href="assets/css/components.css">
 	<link rel="stylesheet" href="assets/css/pages/home.css">
+	<link rel="stylesheet" href="assets/css/video-hero.css">
 	<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
 </head>
 
@@ -28,22 +29,52 @@
 
 	<main class="main-content">
 
-		<!-- ═══════════════ HERO ═══════════════ .-->
-		<section class="hero-section">
-			<div class="hero-bg-img">
-				<img src="assets/images/hero/hero-main.jpg" alt="Luxury renovated home in Tbilisi" loading="eager">
-				<div class="hero-overlay"></div>
+		<!-- ═══════════════ HERO (Video) ═══════════════ -->
+		<section class="hero-video-section">
+			<!-- Video Container -->
+			<div class="hero-video-container">
+				<!-- Main Video (used for both themes) -->
+				<video id="hero-video-morning" class="hero-video active" muted playsinline preload="auto"
+					poster="assets/images/hero/hero-main.jpg">
+					<source src="assets/videos/Morning_Scene.mov" type="video/mp4">
+				</video>
+
+				<!-- Idle Animation GIF (shown when not scrolling) -->
+				<img id="hero-idle-gif" class="hero-idle-gif"
+					src="assets/images/hero/idle-morning.gif"
+					alt="Idle animation"
+					style="display: none; opacity: 0;">
+
+				<!-- Theme Overlay (creates evening effect in dark mode) -->
+				<div class="hero-video-theme-overlay"></div>
+
+				<!-- Gradient Overlay -->
+				<div class="hero-video-overlay"></div>
 			</div>
 
-			<div class="hero-content container">
-				<div class="hero-headline">
-					<h1>
-						<span data-i18n="home.hero.headlineMain">RX</span><br>
-						<span class="hero-headline-sub" data-i18n="home.hero.headlineSub">Renovation</span>
-					</h1>
+			<!-- Background Music -->
+			<audio id="hero-audio-morning" loop preload="auto">
+				<source src="assets/audio/morning-ambient.mp3" type="audio/mpeg">
+			</audio>
+			<audio id="hero-audio-evening" loop preload="auto">
+				<source src="assets/audio/evening-ambient.mp3" type="audio/mpeg">
+			</audio>
+
+			<!-- Hero Content Wrapper -->
+			<div class="hero-content-wrapper">
+				<div class="hero-content">
+					<div class="hero-headline">
+						<h1>
+							<span data-i18n="home.hero.headlineMain">RX</span><br>
+							<span class="hero-headline-sub" data-i18n="home.hero.headlineSub">Renovation</span>
+						</h1>
+						<p class="hero-tagline" data-i18n="home.hero.tagline">Transforming spaces into timeless
+							masterpieces</p>
+					</div>
 				</div>
 			</div>
 
+			<!-- Scroll Indicator -->
 			<div class="hero-scroll">
 				<div class="scroll-indicator">
 					<div class="scroll-line"></div>
@@ -133,7 +164,8 @@
 							</svg>
 						</div>
 						<h3 data-i18n="home.expertise.renovation.title">Renovation Work</h3>
-						<p data-i18n="home.expertise.renovation.desc">Our team performs all types of renovation work with precision and quality.</p>
+						<p data-i18n="home.expertise.renovation.desc">Our team performs all types of renovation work
+							with precision and quality.</p>
 						<a href="services.html" class="service-link"><span
 								data-i18n="home.expertise.renovation.cta">Request a service</span> <span>→</span></a>
 					</div>
@@ -214,7 +246,8 @@
 					<div class="projects-header-right">
 						<h2 data-i18n="home.projects.headline">Selected Projects</h2>
 						<div class="projects-meta">
-							<p data-i18n="home.projects.checkPortfolio">Check out our portfolio to see the quality of our work.</p>
+							<p data-i18n="home.projects.checkPortfolio">Check out our portfolio to see the quality of
+								our work.</p>
 						</div>
 					</div>
 				</div>
@@ -230,7 +263,8 @@
 						</div>
 					</div>
 					<div class="bento-item bento-text">
-						<p class="section-label" data-i18n="home.projects.sectionLabel">We design homes of superior quality and character</p>
+						<p class="section-label" data-i18n="home.projects.sectionLabel">We design homes of superior
+							quality and character</p>
 					</div>
 					<div class="bento-item bento-wide img-card">
 						<img src="assets/images/projects/project-03.jpg" alt="Full home renovation">
@@ -353,6 +387,7 @@
 	</main>
 
 	<footer id="site-footer" class="site-footer"></footer>
+	<script src="assets/js/video-hero.js"></script>
 	<script src="assets/js/main.js" type="module"></script>
 	<script src="assets/js/pages/home.js" type="module"></script>
 </body>

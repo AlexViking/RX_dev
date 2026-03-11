@@ -1,0 +1,339 @@
+/* ═══════════════════════════════════════════════
+   VIDEO HERO SECTION
+═══════════════════════════════════════════════ */
+
+.hero-video-section {
+  position: relative;
+  width: 100%;
+  height: 300vh; /* Extended height for scroll-through */
+  overflow: visible;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Video Container - Sticky so it stays in viewport while scrolling */
+.hero-video-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
+/* Video Elements */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.hero-video.active {
+  opacity: 1;
+}
+
+/* Idle Animation GIF */
+.hero-idle-gif {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Theme Overlay - Creates evening effect in dark mode */
+.hero-video-theme-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  mix-blend-mode: multiply;
+  transition: background 1s ease-in-out;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Dark mode: Add blue-orange evening color grading */
+[data-theme="dark"] .hero-video-theme-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(20, 30, 60, 0.4) 0%,      /* Deep blue top */
+    rgba(40, 25, 15, 0.3) 50%,     /* Warm mid */
+    rgba(60, 35, 10, 0.5) 100%     /* Warm orange bottom */
+  );
+}
+
+/* Light mode: Slightly brighten */
+[data-theme="light"] .hero-video-theme-overlay {
+  background: rgba(255, 255, 255, 0.05);
+  mix-blend-mode: screen;
+}
+
+/* Video Overlay (gradient for text readability) */
+.hero-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+[data-theme="light"] .hero-video-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+}
+
+/* Hero Content Wrapper - Centered container */
+.hero-content-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Fade out when video completes */
+body.video-hero-complete .hero-content-wrapper {
+  opacity: 0;
+  transform: translate(-50%, -60%);
+  pointer-events: none;
+}
+
+/* Hero Content - Always centered */
+.hero-video-section .hero-content {
+  text-align: center;
+  padding: 0 var(--space-6);
+  width: 100%;
+  max-width: 1200px;
+}
+
+.hero-video-section .hero-headline {
+  animation: heroFadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+.hero-video-section h1 {
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 200;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-4);
+  color: #ffffff;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="light"] .hero-video-section h1 {
+  color: #ffffff;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+}
+
+.hero-video-section .hero-headline-sub {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.8rem, 5vw, 4rem);
+  color: #d8bc8a;
+  display: block;
+  margin-top: var(--space-2);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hero-video-section .hero-tagline {
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: var(--space-8);
+  font-weight: 400;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
+}
+
+/* Scroll Indicator - Fixed at bottom center */
+.hero-video-section .hero-scroll {
+  position: fixed;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  animation: heroFadeInUp 1s ease forwards;
+  animation-delay: 1.5s;
+  opacity: 0;
+  width: fit-content;
+  transition: opacity 0.5s ease;
+}
+
+/* Hide when scrolled past hero */
+body.video-hero-complete .hero-video-section .hero-scroll {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.scroll-indicator span {
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.scroll-indicator:hover {
+  transform: translateY(4px);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: rgba(255, 255, 255, 0.9);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0% {
+    top: -40%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 140%;
+    opacity: 0;
+  }
+}
+
+@keyframes heroFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-video-section {
+    height: 80vh;
+  }
+
+  .hero-video-section h1 {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .hero-video-section .hero-headline-sub {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+  }
+
+  .hero-video-section .hero-tagline {
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+  }
+
+  .hero-video-section .hero-scroll {
+    bottom: var(--space-6);
+  }
+}
+
+/* Performance: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .hero-video,
+  .hero-headline,
+  .scroll-indicator {
+    animation: none;
+    transition: none;
+  }
+
+  .hero-video.active {
+    opacity: 1;
+  }
+}
+
+/* Video Loading State */
+.hero-video-container.loading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg);
+  z-index: 10;
+  animation: fadeOut 0.5s ease forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
